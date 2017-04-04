@@ -1,0 +1,481 @@
+{
+    "modelName": "UBA_Proxy",
+    "displayName": "UBA_Proxy",
+    "description": "Fields Expected in UBA Proxy Logs",
+    "objectSummary": {
+        "Event-Based": 1,
+        "Transaction-Based": 0,
+        "Search-Based": 0
+    },
+    "objects": [
+        {
+            "objectName": "UBA_Proxy",
+            "displayName": "UBA_Proxy",
+            "parentName": "BaseEvent",
+            "fields": [
+                {
+                    "fieldName": "app",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "isrequired": "optional",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "app",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "tag",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "isrequired": "optional",
+                    "required": true,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "tag",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "category",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "isrequired": "optional",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "cookie",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "isrequired": "optional",
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "cookie",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "duration",
+                    "owner": "UBA_Proxy",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "isrequired": "optional",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "duration",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "site",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "isrequired": "required",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "site",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_ip",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "isrequired": "preferred",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_ip",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_port",
+                    "owner": "UBA_Proxy",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "isrequired": "preferred",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_port",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "http_forwarding_chain",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "isrequired": "optional",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "http_forwarding_chain",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "src_ip",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "isrequired": "optional",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "src_ip",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "src_port",
+                    "owner": "UBA_Proxy",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "isrequired": "optional",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "src_port",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "transport",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "isrequired": "optional",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "transport",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "isrequired": "optional",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "isrequired": "optional",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "isrequired": "optional",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "isrequired": "optional",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "action",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "action",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_action",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(action) OR action=\"\",\"unknown\",action)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "bytes",
+                            "owner": "UBA_Proxy",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "bytes",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_bytes",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "case(isnum(bytes),bytes,isnum(bytes_in) AND isnum(bytes_out),bytes_in+bytes_out,1=1,null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "bytes_in",
+                            "owner": "UBA_Proxy",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "bytes_in",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_bytes_in",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "case(isnum(bytes_in),bytes_in,isnum(bytes) AND isnum(bytes_out),bytes-bytes_out,1=1,null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "bytes_out",
+                            "owner": "UBA_Proxy",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "bytes_out",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_bytes_out",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "case(isnum(bytes_out),bytes_out,isnum(bytes) AND isnum(bytes_in),bytes-bytes_in,1=1,null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "http_content_type",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "http_content_type",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_http_content_type",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(http_content_type) OR http_content_type=\"\" OR http_content_type=\"-\",\"unknown\",http_content_type)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "http_method",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "http_method",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_http_method",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(http_method) OR http_method=\"\" OR http_method=\"-\",\"unknown\",http_method)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "http_referrer",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "http_referrer",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_http_referrer",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(http_referrer) OR http_referrer=\"\" OR http_referrer=\"-\",\"unknown\",http_referrer)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "http_user_agent",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "http_user_agent",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_http_user_agent",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(http_user_agent) OR http_user_agent=\"\" OR http_user_agent=\"-\",\"unknown\",http_user_agent)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "status",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "status",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_status",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(status) OR status=\"\" OR status=\"-\",\"unknown\",status)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "url",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "url",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_url",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(url) OR url=\"\" OR url=\"-\",\"unknown\",url)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "user",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "user",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_user",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(user) OR user=\"\",\"unknown\",user)"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "tag=web",
+                    "owner": "UBA_Proxy"
+                }
+            ],
+            "lineage": "UBA_Proxy"
+        }
+    ],
+    "objectNameList": [
+        "UBA_Proxy"
+    ]
+}

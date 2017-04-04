@@ -1,0 +1,4 @@
+datamodel,search
+"UBA_Proxy","sourcetype=stream:http source=stream:sample"
+"UBA_Proxy","sourcetype=websense*"
+"UBA_Proxy","sourcetype=cisco:sourcefire"

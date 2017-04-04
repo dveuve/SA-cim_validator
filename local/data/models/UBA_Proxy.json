@@ -1,0 +1,456 @@
+{
+    "modelName": "UBA_Proxy",
+    "displayName": "UBA_Proxy",
+    "description": "Fields Expected in UBA Proxy Logs",
+    "objectSummary": {
+        "Event-Based": 1,
+        "Transaction-Based": 0,
+        "Search-Based": 0
+    },
+    "objects": [
+        {
+            "objectName": "UBA_Proxy",
+            "displayName": "UBA_Proxy",
+            "parentName": "BaseEvent",
+            "fields": [
+                {
+                    "fieldName": "tag",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "tag=*",
+                    "required": true,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "tag",
+                    "comment": "This is required by UBA to understand that the data is proxy data, and also for the data model itself to function.",
+                    "possibleValues": "web",
+                    "is_required": "required",
+                    "regex": "(\\w*)"
+                },
+                {
+                    "fieldName": "category",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "category",
+                    "comment": "The category of traffic, such as may be provided by a proxy server.",
+                    "possibleValues": "Search, News, Gambling, etc.",
+                    "is_required": "optional",
+                    "regex": "^.{3,50}$"
+                },
+                {
+                    "fieldName": "duration",
+                    "owner": "UBA_Proxy",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "duration",
+                    "comment": "The time taken by the proxy event, in milliseconds.",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": "^\\d+(:?\\.\\d{1,6})?$"
+                },
+                {
+                    "fieldName": "dest_ip",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_ip",
+                    "comment": "The IP address of the destination.",
+                    "possibleValues": "8.8.8.8",
+                    "is_required": "optional",
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
+                },
+                {
+                    "fieldName": "src_ip",
+                    "owner": "UBA_Proxy",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "src_ip",
+                    "comment": "The ip address of the source.",
+                    "possibleValues": "10.1.1.1",
+                    "is_required": "optional",
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
+                },
+                {
+                    "fieldName": "response_time",
+                    "owner": "UBA_Proxy",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "response_time",
+                    "comment": "The time the server needed to respond to the request.",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": "^([\\d\\.]{1,})$"
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": "The time of the event.",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": "\\d*"
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": "The host who generated the event.",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ".*"
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": "The source that generated the event.",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ".*"
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": "The sourcetype of the event.",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ".*"
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "action",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "action",
+                            "comment": "The action taken by the server or proxy.",
+                            "possibleValues": "success, failure, allowed, blocked, deferred",
+                            "is_required": "required",
+                            "regex": "^(success|failure|allowed|blocked|deferred)$"
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_action",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(action) OR action=\"\",\"unknown\",action)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "bytes",
+                            "owner": "UBA_Proxy",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "bytes",
+                            "comment": "The total number of bytes transferred (bytes_in + bytes_out).",
+                            "possibleValues": "50000",
+                            "is_required": "optional",
+                            "regex": "^\\d+$"
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_bytes",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "case(isnum(bytes),bytes,isnum(bytes_in) AND isnum(bytes_out),bytes_in+bytes_out,1=1,null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "bytes_in",
+                            "owner": "UBA_Proxy",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "bytes_in",
+                            "comment": "The number of inbound bytes transferred.",
+                            "possibleValues": "",
+                            "is_required": "required",
+                            "regex": "^\\d+$"
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_bytes_in",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "case(isnum(bytes_in),bytes_in,isnum(bytes) AND isnum(bytes_out),bytes-bytes_out,1=1,null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "bytes_out",
+                            "owner": "UBA_Proxy",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "bytes_out",
+                            "comment": "The number of outbound bytes transferred.",
+                            "possibleValues": "",
+                            "is_required": "required",
+                            "regex": "^\\d+$"
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_bytes_out",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "case(isnum(bytes_out),bytes_out,isnum(bytes) AND isnum(bytes_in),bytes-bytes_in,1=1,null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "http_content_type",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "http_content_type",
+                            "comment": "The content-type of the requested HTTP resource.",
+                            "possibleValues": "text/html",
+                            "is_required": "required",
+                            "regex": "^\\w+\\/[\\w\\-\\+\\.]+$"
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_http_content_type",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(http_content_type) OR http_content_type=\"\" OR http_content_type=\"-\",\"unknown\",http_content_type)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "http_method",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "http_method",
+                            "comment": "The HTTP method used in the request.",
+                            "possibleValues": "GET, PUT, POST, DELETE, HEAD, OPTIONS, TRACE, CONNECT",
+                            "is_required": "required",
+                            "regex": "(?:GET|POST|HEAD|PUT|DELETE|OPTIONS|TRACE|CONNECT)$"
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_http_method",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(http_method) OR http_method=\"\" OR http_method=\"-\",\"unknown\",http_method)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "http_referrer",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "http_referrer",
+                            "comment": "The HTTP referrer used in the request. The W3C specification and many implementations misspell this as http_referer. A FIELDALIAS is recommended to handle both key names.",
+                            "possibleValues": "Any URL",
+                            "is_required": "optional",
+                            "regex": "^(?:https?|ftp|tcp):\\/{2}.+"
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_http_referrer",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(http_referrer) OR http_referrer=\"\" OR http_referrer=\"-\",\"unknown\",http_referrer)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "http_user_agent",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "http_user_agent",
+                            "comment": "The user agent used in the request.",
+                            "possibleValues": "There is a lot of variability, but something like Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36",
+                            "is_required": "required",
+                            "regex": "^.{1,250}$"
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_http_user_agent",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(http_user_agent) OR http_user_agent=\"\" OR http_user_agent=\"-\",\"unknown\",http_user_agent)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "status",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "status",
+                            "comment": "The HTTP response code indicating the status of the proxy request.",
+                            "possibleValues": "404, 302, 500, and so on.",
+                            "is_required": "required",
+                            "regex": "(100|101|102|200|201|202|203|204|205|206|207|208|226|300|301|302|303|304|305|306|307|308|400|401|402|403|404|405|406|407|408|409|410|411|412|413|414|415|416|417|418|420|422|423|424|425|426|428|429|431|444|449|450|451|499|500|501|502|503|504|505|506|507|508|509|510|511|598|599)"
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_status",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(status) OR status=\"\" OR status=\"-\",\"unknown\",status)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "url",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "url",
+                            "comment": "The URL of the requested HTTP resource.",
+                            "possibleValues": "E.g., https://www.google.com/?q=url%20vs%20uri",
+                            "is_required": "required",
+                            "regex": "^(?:https?|ftp|tcp):\\/{2}.+"
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_url",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(url) OR url=\"\" OR url=\"-\",\"unknown\",url)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "user",
+                            "owner": "UBA_Proxy",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "user",
+                            "comment": "The user that requested the HTTP resource.",
+                            "possibleValues": "jsmith, jane.smith, x37523a, etc.",
+                            "is_required": "optional",
+                            "regex": "^[\\w\\/\\\\\\-\\.$]{1,20}$"
+                        }
+                    ],
+                    "calculationID": "UBA_Proxy_fillnull_user",
+                    "owner": "UBA_Proxy",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(user) OR user=\"\",\"unknown\",user)"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "tag=web",
+                    "owner": "UBA_Proxy"
+                }
+            ],
+            "lineage": "UBA_Proxy"
+        }
+    ],
+    "objectNameList": [
+        "UBA_Proxy"
+    ]
+}

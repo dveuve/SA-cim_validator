@@ -1,0 +1,28 @@
+<form script="data_input_dashboard_version.js" stylesheet="table_decorations.css,resize_inputs.css">
+  <label>UBA Data Validation</label>
+
+  <row>
+    <panel>
+      <title>UBA Data Validation</title>
+      <html>
+        <div id="data_input_header">
+          <p>Provide your searches below. Don't forget to click Save State to remember your inputs for the future, or click Load State to pull back your last state.</p>
+          <button onclick="loadState()" class="btn " id="loadStateButton">Load State</button><button onclick="saveState()" class="btn " id="saveStateButton">Save State</button><button onclick="window.addRow()" class="btn " id="addRowButton">Add Additional Data Source</button><div style="display:inline-block;" id="input1" />
+        </div>
+
+        <div id="data_inputs">
+        </div>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Overall Data Coverage</title>
+      <html>
+        <div id="data_summary_overall">
+          <p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. Please supply additional data sources.</p>
+        </div>
+      </html>
+    </panel>
+  </row>
+</form>
