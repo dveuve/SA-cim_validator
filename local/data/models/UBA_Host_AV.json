@@ -5,7 +5,7 @@
     "objectSummary": {
         "Event-Based": 1,
         "Transaction-Based": 0,
-        "Search-Based": 1
+        "Search-Based": 0
     },
     "objects": [
         {
@@ -13,66 +13,6 @@
             "displayName": "UBA_Host_AV",
             "parentName": "BaseEvent",
             "fields": [
-                {
-                    "fieldName": "dest_bunit",
-                    "owner": "Malware_Attacks",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_bunit",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_category",
-                    "owner": "Malware_Attacks",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_category",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_priority",
-                    "owner": "Malware_Attacks",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_priority",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_requires_av",
-                    "owner": "Malware_Attacks",
-                    "type": "boolean",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_requires_av",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "file_hash",
-                    "owner": "Malware_Attacks",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "file_hash",
-                    "comment": ""
-                },
                 {
                     "fieldName": "file_name",
                     "owner": "Malware_Attacks",
@@ -98,54 +38,6 @@
                     "comment": ""
                 },
                 {
-                    "fieldName": "src",
-                    "owner": "Malware_Attacks",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_bunit",
-                    "owner": "Malware_Attacks",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_bunit",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_category",
-                    "owner": "Malware_Attacks",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_category",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_priority",
-                    "owner": "Malware_Attacks",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_priority",
-                    "comment": ""
-                },
-                {
                     "fieldName": "tag",
                     "owner": "Malware_Attacks",
                     "type": "string",
@@ -158,7 +50,7 @@
                     "comment": ""
                 },
                 {
-                    "fieldName": "user_bunit",
+                    "fieldName": "action",
                     "owner": "Malware_Attacks",
                     "type": "string",
                     "fieldSearch": "",
@@ -166,23 +58,11 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "user_bunit",
+                    "displayName": "action",
                     "comment": ""
                 },
                 {
-                    "fieldName": "user_category",
-                    "owner": "Malware_Attacks",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "user_category",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "user_priority",
+                    "fieldName": "category",
                     "owner": "Malware_Attacks",
                     "type": "string",
                     "fieldSearch": "",
@@ -190,7 +70,115 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "user_priority",
+                    "displayName": "category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_nt_domain",
+                    "owner": "Malware_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_nt_domain",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user",
+                    "owner": "Malware_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_host",
+                    "owner": "Malware_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_ip",
+                    "owner": "Malware_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_ip",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "duration",
+                    "owner": "Malware_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "duration",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alarmCategories",
+                    "owner": "Malware_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "alarmCategories",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "eventtype",
+                    "owner": "Malware_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "eventtype",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "severity",
+                    "owner": "Malware_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "severity",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "url",
+                    "owner": "Malware_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
                     "comment": ""
                 },
                 {
@@ -212,7 +200,7 @@
                     "fieldSearch": "",
                     "required": false,
                     "multivalue": false,
-                    "hidden": false,
+                    "hidden": true,
                     "editable": true,
                     "displayName": "host",
                     "comment": ""
@@ -224,7 +212,7 @@
                     "fieldSearch": "",
                     "required": false,
                     "multivalue": false,
-                    "hidden": false,
+                    "hidden": true,
                     "editable": true,
                     "displayName": "source",
                     "comment": ""
@@ -236,375 +224,23 @@
                     "fieldSearch": "",
                     "required": false,
                     "multivalue": false,
-                    "hidden": false,
+                    "hidden": true,
                     "editable": true,
                     "displayName": "sourcetype",
                     "comment": ""
                 }
             ],
-            "calculations": [
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "action",
-                            "owner": "Malware_Attacks",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "action",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Malware_Attacks_fillnull_action",
-                    "owner": "Malware_Attacks",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(action) OR action=\"\",\"unknown\",action)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "category",
-                            "owner": "Malware_Attacks",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "category",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Malware_Attacks_fillnull_category",
-                    "owner": "Malware_Attacks",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(category) OR category=\"\",\"unknown\",category)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "date",
-                            "owner": "Malware_Attacks",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "date",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Malware_Attacks_date",
-                    "owner": "Malware_Attacks",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "strftime(_time, \"%m-%d-%Y\")"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "signature",
-                            "owner": "Malware_Attacks",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "signature",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Malware_Attacks_fillnull_signature",
-                    "owner": "Malware_Attacks",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(signature) OR signature=\"\",\"unknown\",signature)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "dest",
-                            "owner": "Malware_Attacks",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "dest",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Malware_Attacks_fillnull_dest",
-                    "owner": "Malware_Attacks",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(dest) OR dest=\"\",\"unknown\",dest)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "dest_nt_domain",
-                            "owner": "Malware_Attacks",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "dest_nt_domain",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Malware_Attacks_fillnull_dest_nt_domain",
-                    "owner": "Malware_Attacks",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(dest_nt_domain) OR dest_nt_domain=\"\",\"unknown\",dest_nt_domain)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "user",
-                            "owner": "Malware_Attacks",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "user",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Malware_Attacks_fillnull_user",
-                    "owner": "Malware_Attacks",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(user) OR user=\"\",\"unknown\",user)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "vendor_product",
-                            "owner": "Malware_Attacks",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "vendor_product",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Malware_Attacks_vendor_product",
-                    "owner": "Malware_Attacks",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "case(isnotnull(vendor_product),vendor_product,isnotnull(vendor) AND vendor!=\"unknown\" AND isnotnull(product) AND product!=\"unknown\",vendor.\" \".product,isnotnull(vendor) AND vendor!=\"unknown\" AND (isnull(product) OR product=\"unknown\"),vendor.\" unknown\",(isnull(vendor) OR vendor=\"unknown\") AND isnotnull(product) AND product!=\"unknown\",\"unknown \".product,isnotnull(sourcetype),sourcetype,1=1,\"unknown\")"
-                }
-            ],
+            "calculations": [],
             "constraints": [
                 {
-                    "search": "(`cim_Malware_indexes`) tag=malware tag=attack",
+                    "search": "tag=malware tag=attack",
                     "owner": "Malware_Attacks"
                 }
             ],
             "lineage": "Malware_Attacks"
-        },
-        {
-            "objectName": "Malware_Operations",
-            "displayName": "Malware Operations",
-            "parentName": "BaseSearch",
-            "fields": [
-                {
-                    "fieldName": "_time",
-                    "owner": "Malware_Operations",
-                    "type": "timestamp",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "_time",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_bunit",
-                    "owner": "Malware_Operations",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_bunit",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_category",
-                    "owner": "Malware_Operations",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_category",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_priority",
-                    "owner": "Malware_Operations",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_priority",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_requires_av",
-                    "owner": "Malware_Operations",
-                    "type": "boolean",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_requires_av",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "product_version",
-                    "owner": "Malware_Operations",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "product_version",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "signature_version",
-                    "owner": "Malware_Operations",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "signature_version",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "tag",
-                    "owner": "Malware_Operations",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "tag",
-                    "comment": ""
-                }
-            ],
-            "calculations": [
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "dest",
-                            "owner": "Malware_Operations",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "dest",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Malware_Operations_fillnull_dest",
-                    "owner": "Malware_Operations",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(dest) OR dest=\"\",\"unknown\",dest)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "dest_nt_domain",
-                            "owner": "Malware_Operations",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "dest_nt_domain",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Malware_Operations_fillnull_dest_nt_domain",
-                    "owner": "Malware_Operations",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(dest_nt_domain) OR dest_nt_domain=\"\",\"unknown\",dest_nt_domain)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "vendor_product",
-                            "owner": "Malware_Operations",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "vendor_product",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Malware_Operations_vendor_product",
-                    "owner": "Malware_Operations",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "case(isnotnull(vendor_product),vendor_product,isnotnull(vendor) AND vendor!=\"unknown\" AND isnotnull(product) AND product!=\"unknown\",vendor.\" \".product,isnotnull(vendor) AND vendor!=\"unknown\" AND (isnull(product) OR product=\"unknown\"),vendor.\" unknown\",(isnull(vendor) OR vendor=\"unknown\") AND isnotnull(product) AND product!=\"unknown\",\"unknown \".product,isnotnull(sourcetype),sourcetype,1=1,\"unknown\")"
-                }
-            ],
-            "constraints": [],
-            "lineage": "Malware_Operations",
-            "baseSearch": "(`cim_Malware_indexes`) tag=malware tag=operations | tags outputfield=tag"
         }
     ],
     "objectNameList": [
-        "Malware_Attacks",
-        "Malware_Operations"
+        "Malware_Attacks"
     ]
 }

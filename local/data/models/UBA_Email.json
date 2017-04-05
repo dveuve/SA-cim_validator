@@ -14,78 +14,6 @@
             "parentName": "BaseEvent",
             "fields": [
                 {
-                    "fieldName": "delay",
-                    "owner": "All_Email",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "delay",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_bunit",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_bunit",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_category",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_category",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_priority",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_priority",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "duration",
-                    "owner": "All_Email",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "duration",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "file_hash",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "file_hash",
-                    "comment": ""
-                },
-                {
                     "fieldName": "file_name",
                     "owner": "All_Email",
                     "type": "string",
@@ -107,258 +35,6 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "file_size",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "internal_message_id",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "internal_message_id",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "message_id",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "message_id",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "message_info",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "message_info",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "orig_dest",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "orig_dest",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "orig_recipient",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "orig_recipient",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "orig_src",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "orig_src",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "protocol",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "protocol",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "process",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "process",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "process_id",
-                    "owner": "All_Email",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "process_id",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "recipient_status",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "recipient_status",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "response_time",
-                    "owner": "All_Email",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "response_time",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "retries",
-                    "owner": "All_Email",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "retries",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "return_addr",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "return_addr",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "size",
-                    "owner": "All_Email",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "size",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_bunit",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_bunit",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_category",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_category",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_priority",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_priority",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_user_bunit",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_user_bunit",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_user_category",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_user_category",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_user_priority",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_user_priority",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "status_code",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "status_code",
                     "comment": ""
                 },
                 {
@@ -386,19 +62,7 @@
                     "comment": ""
                 },
                 {
-                    "fieldName": "url",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "url",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "user",
+                    "fieldName": "src_user",
                     "owner": "All_Email",
                     "type": "string",
                     "fieldSearch": "",
@@ -406,11 +70,11 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "user",
+                    "displayName": "src_user",
                     "comment": ""
                 },
                 {
-                    "fieldName": "user_bunit",
+                    "fieldName": "action",
                     "owner": "All_Email",
                     "type": "string",
                     "fieldSearch": "",
@@ -418,23 +82,11 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "user_bunit",
+                    "displayName": "action",
                     "comment": ""
                 },
                 {
-                    "fieldName": "user_category",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "user_category",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "user_priority",
+                    "fieldName": "recipient",
                     "owner": "All_Email",
                     "type": "string",
                     "fieldSearch": "",
@@ -442,11 +94,11 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "user_priority",
+                    "displayName": "recipient",
                     "comment": ""
                 },
                 {
-                    "fieldName": "xdelay",
+                    "fieldName": "eventtype",
                     "owner": "All_Email",
                     "type": "string",
                     "fieldSearch": "",
@@ -454,19 +106,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "xdelay",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "xref",
-                    "owner": "All_Email",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "xref",
+                    "displayName": "eventtype",
                     "comment": ""
                 },
                 {
@@ -488,7 +128,7 @@
                     "fieldSearch": "",
                     "required": false,
                     "multivalue": false,
-                    "hidden": false,
+                    "hidden": true,
                     "editable": true,
                     "displayName": "host",
                     "comment": ""
@@ -500,7 +140,7 @@
                     "fieldSearch": "",
                     "required": false,
                     "multivalue": false,
-                    "hidden": false,
+                    "hidden": true,
                     "editable": true,
                     "displayName": "source",
                     "comment": ""
@@ -512,168 +152,13 @@
                     "fieldSearch": "",
                     "required": false,
                     "multivalue": false,
-                    "hidden": false,
+                    "hidden": true,
                     "editable": true,
                     "displayName": "sourcetype",
                     "comment": ""
                 }
             ],
-            "calculations": [
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "action",
-                            "owner": "All_Email",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "action",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Email_fillnull_action",
-                    "owner": "All_Email",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(action) OR action=\"\",\"unknown\",action)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "dest",
-                            "owner": "All_Email",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "dest",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Email_fillnull_dest",
-                    "owner": "All_Email",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(dest) OR dest=\"\",\"unknown\",dest)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "src",
-                            "owner": "All_Email",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "src",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Email_fillnull_src",
-                    "owner": "All_Email",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(src) OR src=\"\",\"unknown\",src)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "recipient",
-                            "owner": "All_Email",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": true,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "recipient",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Email_0fillnull_recipient",
-                    "owner": "All_Email",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(recipient) OR recipient=\"\",\"unknown\",recipient)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "recipient_count",
-                            "owner": "All_Email",
-                            "type": "number",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "recipient_count",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Email_fillnull_recipient_count",
-                    "owner": "All_Email",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "case(isnum(recipient_count),recipient_count,isnotnull(recipient),mvcount(recipient),1=1,1)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "src_user",
-                            "owner": "All_Email",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "src_user",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Email_fillnull_src_user",
-                    "owner": "All_Email",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(src_user) OR src_user=\"\",\"unknown\",src_user)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "vendor_product",
-                            "owner": "All_Email",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "vendor_product",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "Email_vendor_product",
-                    "owner": "All_Email",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "case(isnotnull(vendor_product),vendor_product,isnotnull(vendor) AND vendor!=\"unknown\" AND isnotnull(product) AND product!=\"unknown\",vendor.\" \".product,isnotnull(vendor) AND vendor!=\"unknown\" AND (isnull(product) OR product=\"unknown\"),vendor.\" unknown\",(isnull(vendor) OR vendor=\"unknown\") AND isnotnull(product) AND product!=\"unknown\",\"unknown \".product,isnotnull(sourcetype),sourcetype,1=1,\"unknown\")"
-                }
-            ],
+            "calculations": [],
             "constraints": [
                 {
                     "search": "(`cim_Email_indexes`) tag=email",

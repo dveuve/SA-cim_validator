@@ -26,54 +26,6 @@
                     "comment": ""
                 },
                 {
-                    "fieldName": "channel",
-                    "owner": "All_Traffic",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "channel",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_bunit",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_bunit",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_category",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_category",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_interface",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_interface",
-                    "comment": ""
-                },
-                {
                     "fieldName": "dest_ip",
                     "owner": "All_Traffic",
                     "type": "string",
@@ -86,7 +38,7 @@
                     "comment": ""
                 },
                 {
-                    "fieldName": "dest_mac",
+                    "fieldName": "dest_zone",
                     "owner": "All_Traffic",
                     "type": "string",
                     "fieldSearch": "",
@@ -94,19 +46,7 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "dest_mac",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dest_priority",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_priority",
+                    "displayName": "dest_zone",
                     "comment": ""
                 },
                 {
@@ -122,30 +62,6 @@
                     "comment": ""
                 },
                 {
-                    "fieldName": "dest_translated_port",
-                    "owner": "All_Traffic",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dest_translated_port",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "direction",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "direction",
-                    "comment": ""
-                },
-                {
                     "fieldName": "duration",
                     "owner": "All_Traffic",
                     "type": "number",
@@ -155,102 +71,6 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "duration",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dvc_ip",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dvc_ip",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dvc_bunit",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dvc_bunit",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dvc_category",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dvc_category",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dvc_mac",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dvc_mac",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "dvc_priority",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "dvc_priority",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "flow_id",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "flow_id",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "icmp_code",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "icmp_code",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "icmp_type",
-                    "owner": "All_Traffic",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "icmp_type",
                     "comment": ""
                 },
                 {
@@ -266,78 +86,6 @@
                     "comment": ""
                 },
                 {
-                    "fieldName": "protocol_version",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "protocol_version",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "response_time",
-                    "owner": "All_Traffic",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "response_time",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "session_id",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "session_id",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_bunit",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_bunit",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_category",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_category",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_interface",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_interface",
-                    "comment": ""
-                },
-                {
                     "fieldName": "src_ip",
                     "owner": "All_Traffic",
                     "type": "string",
@@ -347,30 +95,6 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_ip",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_mac",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_mac",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "src_priority",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_priority",
                     "comment": ""
                 },
                 {
@@ -386,30 +110,6 @@
                     "comment": ""
                 },
                 {
-                    "fieldName": "src_translated_port",
-                    "owner": "All_Traffic",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "src_translated_port",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "ssid",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "ssid",
-                    "comment": ""
-                },
-                {
                     "fieldName": "tag",
                     "owner": "All_Traffic",
                     "type": "string",
@@ -422,7 +122,7 @@
                     "comment": ""
                 },
                 {
-                    "fieldName": "tcp_flag",
+                    "fieldName": "action",
                     "owner": "All_Traffic",
                     "type": "string",
                     "fieldSearch": "",
@@ -430,23 +130,11 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "tcp_flag",
+                    "displayName": "action",
                     "comment": ""
                 },
                 {
-                    "fieldName": "tos",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "tos",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "ttl",
+                    "fieldName": "bytes",
                     "owner": "All_Traffic",
                     "type": "number",
                     "fieldSearch": "",
@@ -454,11 +142,71 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "ttl",
+                    "displayName": "bytes",
                     "comment": ""
                 },
                 {
-                    "fieldName": "user_bunit",
+                    "fieldName": "bytes_in",
+                    "owner": "All_Traffic",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "bytes_in",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "bytes_out",
+                    "owner": "All_Traffic",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "bytes_out",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_port",
+                    "owner": "All_Traffic",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_port",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "packets_in",
+                    "owner": "All_Traffic",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "packets_in",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "packets_out",
+                    "owner": "All_Traffic",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "packets_out",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "src_port",
                     "owner": "All_Traffic",
                     "type": "string",
                     "fieldSearch": "",
@@ -466,23 +214,11 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "user_bunit",
+                    "displayName": "src_port",
                     "comment": ""
                 },
                 {
-                    "fieldName": "user_category",
-                    "owner": "All_Traffic",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": true,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "user_category",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "user_priority",
+                    "fieldName": "user",
                     "owner": "All_Traffic",
                     "type": "string",
                     "fieldSearch": "",
@@ -490,31 +226,67 @@
                     "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "user_priority",
+                    "displayName": "user",
                     "comment": ""
                 },
                 {
-                    "fieldName": "vlan",
+                    "fieldName": "vendor_action",
                     "owner": "All_Traffic",
                     "type": "string",
                     "fieldSearch": "",
                     "required": false,
-                    "multivalue": true,
+                    "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "vlan",
+                    "displayName": "vendor_action",
                     "comment": ""
                 },
                 {
-                    "fieldName": "wifi",
+                    "fieldName": "dest_host",
                     "owner": "All_Traffic",
                     "type": "string",
                     "fieldSearch": "",
                     "required": false,
-                    "multivalue": true,
+                    "multivalue": false,
                     "hidden": false,
                     "editable": true,
-                    "displayName": "wifi",
+                    "displayName": "dest_host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "src_host",
+                    "owner": "All_Traffic",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "src_host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "url",
+                    "owner": "All_Traffic",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "src_zone",
+                    "owner": "All_Traffic",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "src_zone",
                     "comment": ""
                 },
                 {
@@ -536,7 +308,7 @@
                     "fieldSearch": "",
                     "required": false,
                     "multivalue": false,
-                    "hidden": false,
+                    "hidden": true,
                     "editable": true,
                     "displayName": "host",
                     "comment": ""
@@ -548,7 +320,7 @@
                     "fieldSearch": "",
                     "required": false,
                     "multivalue": false,
-                    "hidden": false,
+                    "hidden": true,
                     "editable": true,
                     "displayName": "source",
                     "comment": ""
@@ -560,369 +332,16 @@
                     "fieldSearch": "",
                     "required": false,
                     "multivalue": false,
-                    "hidden": false,
+                    "hidden": true,
                     "editable": true,
                     "displayName": "sourcetype",
                     "comment": ""
                 }
             ],
-            "calculations": [
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "action",
-                            "owner": "All_Traffic",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "action",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_fillnull_action",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(action) OR action=\"\",\"unknown\",action)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "bytes",
-                            "owner": "All_Traffic",
-                            "type": "number",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "bytes",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_bytes",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "case(isnum(bytes),bytes,isnum(bytes_in) AND isnum(bytes_out),bytes_in+bytes_out,1=1,null())"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "bytes_in",
-                            "owner": "All_Traffic",
-                            "type": "number",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "bytes_in",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_bytes_in",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "case(isnum(bytes_in),bytes_in,isnum(bytes) AND isnum(bytes_out),bytes-bytes_out,1=1,null())"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "bytes_out",
-                            "owner": "All_Traffic",
-                            "type": "number",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "bytes_out",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_bytes_out",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "case(isnum(bytes_out),bytes_out,isnum(bytes) AND isnum(bytes_in),bytes-bytes_in,1=1,null())"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "dest",
-                            "owner": "All_Traffic",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "dest",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_fillnull_dest",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(dest) OR dest=\"\",\"unknown\",dest)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "dest_port",
-                            "owner": "All_Traffic",
-                            "type": "number",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "dest_port",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_fillnull_dest_port",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnum(dest_port),dest_port,0)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "dvc",
-                            "owner": "All_Traffic",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "dvc",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_fillnull_dvc",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(dvc) OR dvc=\"\",\"unknown\",dvc)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "packets",
-                            "owner": "All_Traffic",
-                            "type": "number",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "packets",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_packets",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "case(isnum(packets),packets,isnum(packets_in) AND isnum(packets_out),packets_in+packets_out,1=1,null())"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "packets_in",
-                            "owner": "All_Traffic",
-                            "type": "number",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "packets_in",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_packets_in",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "case(isnum(packets_in),packets_in,isnum(packets) AND isnum(packets_out),packets-packets_out,1=1,null())"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "packets_out",
-                            "owner": "All_Traffic",
-                            "type": "number",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "packets_out",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_packets_out",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "case(isnum(packets_out),packets_out,isnum(packets) AND isnum(packets_in),packets-packets_in,1=1,null())"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "rule",
-                            "owner": "All_Traffic",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "rule",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_fillnull_rule",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(rule) OR rule=\"\",\"unknown\",rule)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "src",
-                            "owner": "All_Traffic",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "src",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_fillnull_src",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(src) OR src=\"\",\"unknown\",src)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "src_port",
-                            "owner": "All_Traffic",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "src_port",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_fillnull_src_port",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnum(src_port),src_port,0)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "transport",
-                            "owner": "All_Traffic",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "transport",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_fillnull_transport",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(transport) OR transport=\"\",\"unknown\",lower(transport))"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "user",
-                            "owner": "All_Traffic",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "user",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_fillnull_user",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "if(isnull(user) OR user=\"\",\"unknown\",user)"
-                },
-                {
-                    "outputFields": [
-                        {
-                            "fieldName": "vendor_product",
-                            "owner": "All_Traffic",
-                            "type": "string",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "vendor_product",
-                            "comment": ""
-                        }
-                    ],
-                    "calculationID": "All_Traffic_vendor_product",
-                    "owner": "All_Traffic",
-                    "editable": true,
-                    "comment": "",
-                    "calculationType": "Eval",
-                    "expression": "case(isnotnull(vendor_product),vendor_product,isnotnull(vendor) AND vendor!=\"unknown\" AND isnotnull(product) AND product!=\"unknown\",vendor.\" \".product,isnotnull(vendor) AND vendor!=\"unknown\" AND (isnull(product) OR product=\"unknown\"),vendor.\" unknown\",(isnull(vendor) OR vendor=\"unknown\") AND isnotnull(product) AND product!=\"unknown\",\"unknown \".product,isnotnull(sourcetype),sourcetype,1=1,\"unknown\")"
-                }
-            ],
+            "calculations": [],
             "constraints": [
                 {
-                    "search": "(`cim_Network_Traffic_indexes`) tag=network tag=communicate",
+                    "search": "tag=network tag=communicate",
                     "owner": "All_Traffic"
                 }
             ],
