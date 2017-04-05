@@ -1,0 +1,445 @@
+{
+    "modelName": "UBA_IDS",
+    "displayName": "UBA_IDS",
+    "description": "Intrusion Detection Data Model",
+    "objectSummary": {
+        "Event-Based": 1,
+        "Transaction-Based": 0,
+        "Search-Based": 0
+    },
+    "objects": [
+        {
+            "objectName": "IDS_Attacks",
+            "displayName": "UBA_IDS",
+            "parentName": "BaseEvent",
+            "fields": [
+                {
+                    "fieldName": "action",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "action",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_bunit",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_category",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_priority",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dvc_bunit",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dvc_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dvc_category",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dvc_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dvc_priority",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dvc_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "src_bunit",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "src_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "src_category",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "src_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "src_priority",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "src_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "tag",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "tag",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_bunit",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_category",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_priority",
+                    "owner": "IDS_Attacks",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "dvc",
+                            "owner": "IDS_Attacks",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "dvc",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "IDS_Attacks_fillnull_dvc",
+                    "owner": "IDS_Attacks",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(dvc) OR dvc=\"\",\"unknown\",dvc)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "ids_type",
+                            "owner": "IDS_Attacks",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "ids_type",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "IDS_Attacks_fillnull_ids_type",
+                    "owner": "IDS_Attacks",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(ids_type) OR ids_type=\"\",\"unknown\",ids_type)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "category",
+                            "owner": "IDS_Attacks",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "category",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "IDS_Attacks_fillnull_category",
+                    "owner": "IDS_Attacks",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(category) OR category=\"\",\"unknown\",category)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "signature",
+                            "owner": "IDS_Attacks",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "signature",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "IDS_Attacks_fillnull_signature",
+                    "owner": "IDS_Attacks",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(signature) OR signature=\"\",\"unknown\",signature)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "severity",
+                            "owner": "IDS_Attacks",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "severity",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "IDS_Attacks_fillnull_severity",
+                    "owner": "IDS_Attacks",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(severity) OR severity=\"\",\"unknown\",severity)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "src",
+                            "owner": "IDS_Attacks",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "src",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "IDS_Attacks_fillnull_src",
+                    "owner": "IDS_Attacks",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(src) OR src=\"\",\"unknown\",src)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "dest",
+                            "owner": "IDS_Attacks",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "dest",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "IDS_Attacks_fillnull_dest",
+                    "owner": "IDS_Attacks",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(dest) OR dest=\"\",\"unknown\",dest)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "user",
+                            "owner": "IDS_Attacks",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "user",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "IDS_Attacks_fillnull_user",
+                    "owner": "IDS_Attacks",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(user) OR user=\"\",\"unknown\",user)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "vendor_product",
+                            "owner": "IDS_Attacks",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "vendor_product",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "IDS_Attacks_vendor_product",
+                    "owner": "IDS_Attacks",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "case(isnotnull(vendor_product),vendor_product,isnotnull(vendor) AND vendor!=\"unknown\" AND isnotnull(product) AND product!=\"unknown\",vendor.\" \".product,isnotnull(vendor) AND vendor!=\"unknown\" AND (isnull(product) OR product=\"unknown\"),vendor.\" unknown\",(isnull(vendor) OR vendor=\"unknown\") AND isnotnull(product) AND product!=\"unknown\",\"unknown \".product,isnotnull(sourcetype),sourcetype,1=1,\"unknown\")"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "(`cim_Intrusion_Detection_indexes`) tag=ids tag=attack",
+                    "owner": "IDS_Attacks"
+                }
+            ],
+            "lineage": "IDS_Attacks"
+        }
+    ],
+    "objectNameList": [
+        "IDS_Attacks"
+    ]
+}

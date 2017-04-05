@@ -708,28 +708,3 @@ cim_version,datamodel,object,field,data_type,description,possible_values,is_requ
 4.3.1,Vulnerabilities,Vulnerabilities,user_priority,string,These are derived fields provided by Asset and Identity correlation features of certain advanced applications like the Splunk App for Enterprise Security. They should be left blank when writing add-ons.,,required
 4.3.1,Vulnerabilities,Vulnerabilities,vendor_product,string,The vendor of the vulnerability detection product or service.,,required
 4.3.1,Vulnerabilities,Vulnerabilities,xref,string,"A cross-reference identifier associated with the vulnerability. In most cases, thexref field contains both the short name of the database being cross-referenced and the unique identifier used in the external database.",,required
-UBA3.1,UBA_Proxy,UBA_Proxy,action,string,"REQUIRED: The action taken by the server or proxy.",,required
-UBA3.1,UBA_Proxy,UBA_Proxy,app,string,"OPTIONAL: The app recording the data, such as IIS, Squid, or Bluecoat.",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,body,string,"OPTIONAL: The body of a message.",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,bytes,number,"REQUIRED: The total number of bytes transferred (bytes_in + bytes_out).",,required
-UBA3.1,UBA_Proxy,UBA_Proxy,bytes_in,number,"REQUIRED: The number of inbound bytes transferred.",,required
-UBA3.1,UBA_Proxy,UBA_Proxy,bytes_out,number,"REQUIRED: The number of outbound bytes transferred.",,required
-UBA3.1,UBA_Proxy,UBA_Proxy,category,string,"REQUIRED: The category of traffic, such as may be provided by a proxy server.",,required
-UBA3.1,UBA_Proxy,UBA_Proxy,cookie,string,"OPTIONAL: The cookie file recorded in the event.",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,dest_ip,string,"OPTIONAL: The IP address of the destination.",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,dest_port,number,"OPTIONAL: The destination port of the network traffic. Note: Do not translate the values of this field to strings (tcp/80 is 80, nothttp). You can set up the corresponding string value in thedest_svc field.",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,duration,number,"OPTIONAL: The time taken by the proxy event, in milliseconds.",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,http_content_type,string,"OPTIONAL: The content-type of the requested HTTP resource.",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,http_forwarding_chain,string,"OPTIONAL: Unknown -- Something UBA",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,http_method,string,"OPTIONAL: The HTTP method used in the request.","GET, PUT,POST, DELETE, etc.",optional
-UBA3.1,UBA_Proxy,UBA_Proxy,http_referrer,string,"OPTIONAL: The HTTP referrer used in the request. The W3C specification and many implementations misspell this as http_referer. A FIELDALIAS is recommended to handle both key names.",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,http_user_agent,string,"PREFERRED: The user agent used in the request.",,preferred
-UBA3.1,UBA_Proxy,UBA_Proxy,http_request,string,"OPTIONAL: The HTTP request itself.",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,src_ip,string,"REQUIRED: The ip address of the source.",,required
-UBA3.1,UBA_Proxy,UBA_Proxy,src_port,number,"OPTIONAL: The source port of the network traffic. Note: Do not translate the values of this field to strings (tcp/80 is 80, nothttp). You can set up the corresponding string value in thesrc_svc field.",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,transport,string,"REQUIRED: The OSI layer 4 (transport) protocol of the traffic observed, in lower case.","tcp, udp, unknown",required
-UBA3.1,UBA_Proxy,UBA_Proxy,tag,string,"REQUIRED: The tag tells UBA how to analyze each event that comes in.","web, network",required
-UBA3.1,UBA_Proxy,UBA_Proxy,url,string,"REQUIRED: The URL of the requested HTTP resource.",,required
-UBA3.1,UBA_Proxy,UBA_Proxy,user,string,"OPTIONAL: The user that requested the HTTP resource.",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,site,string,"OPTIONAL: The virtual site which services the request, if applicable.",,optional
-UBA3.1,UBA_Proxy,UBA_Proxy,status,string,"REQUIRED: The HTTP response code indicating the status of the proxy request.","404, 302, 500, and so on.",required
