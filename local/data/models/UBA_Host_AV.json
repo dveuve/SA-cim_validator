@@ -23,7 +23,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "file_name",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ""
                 },
                 {
                     "fieldName": "file_path",
@@ -35,7 +38,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "file_path",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ""
                 },
                 {
                     "fieldName": "tag",
@@ -47,7 +53,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "tag",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ""
                 },
                 {
                     "fieldName": "action",
@@ -59,7 +68,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "action",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ""
                 },
                 {
                     "fieldName": "category",
@@ -71,7 +83,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "category",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ""
                 },
                 {
                     "fieldName": "dest_nt_domain",
@@ -83,7 +98,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_nt_domain",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ""
                 },
                 {
                     "fieldName": "user",
@@ -95,7 +113,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "user",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ""
                 },
                 {
                     "fieldName": "dest_host",
@@ -107,7 +128,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_host",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ""
                 },
                 {
                     "fieldName": "dest_ip",
@@ -119,7 +143,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_ip",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ""
                 },
                 {
                     "fieldName": "duration",
@@ -131,7 +158,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "duration",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ""
                 },
                 {
                     "fieldName": "alarmCategories",
@@ -143,7 +173,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "alarmCategories",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ""
                 },
                 {
                     "fieldName": "eventtype",
@@ -155,7 +188,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "eventtype",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ""
                 },
                 {
                     "fieldName": "severity",
@@ -167,7 +203,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "severity",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ""
                 },
                 {
                     "fieldName": "url",
@@ -179,7 +218,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "url",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ""
                 },
                 {
                     "fieldName": "_time",
@@ -191,7 +233,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "_time",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ""
                 },
                 {
                     "fieldName": "host",
@@ -203,7 +248,10 @@
                     "hidden": true,
                     "editable": true,
                     "displayName": "host",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ""
                 },
                 {
                     "fieldName": "source",
@@ -215,7 +263,10 @@
                     "hidden": true,
                     "editable": true,
                     "displayName": "source",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ""
                 },
                 {
                     "fieldName": "sourcetype",
@@ -227,7 +278,10 @@
                     "hidden": true,
                     "editable": true,
                     "displayName": "sourcetype",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ""
                 }
             ],
             "calculations": [],
