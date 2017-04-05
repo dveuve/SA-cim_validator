@@ -23,10 +23,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "file_name",
-                    "comment": "",
+                    "comment": "The name of the file with suspected malware.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^.{1,255}$"
                 },
                 {
                     "fieldName": "file_path",
@@ -38,10 +38,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "file_path",
-                    "comment": "",
+                    "comment": "The full file path of the file with suspected malware.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^.{5,2555}$"
                 },
                 {
                     "fieldName": "tag",
@@ -53,10 +53,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "tag",
-                    "comment": "",
+                    "comment": "This automatically generated field is used to access tags from within datamodels. Add-on builders do not need to populate it.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "action",
@@ -68,10 +68,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "action",
-                    "comment": "",
-                    "possibleValues": "",
+                    "comment": "The action taken by the reporting device.",
+                    "possibleValues": "success, failure, allowed, blocked, deferred",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^(success|failure|allowed|blocked|deferred)$"
                 },
                 {
                     "fieldName": "category",
@@ -83,10 +83,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "category",
-                    "comment": "",
+                    "comment": "The category of the malware event, such as keylogger or ad-supported program. Note: This is a string value, not a category_id.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^.{3,50}$"
                 },
                 {
                     "fieldName": "dest_nt_domain",
@@ -98,10 +98,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_nt_domain",
-                    "comment": "",
+                    "comment": "The NT domain of the destination, if applicable.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^[\\w\\/\\\\\\-\\.$]{1,20}$"
                 },
                 {
                     "fieldName": "user",
@@ -113,10 +113,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "user",
-                    "comment": "",
+                    "comment": "The user involved in the malware event.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^[\\w\\/\\\\\\-\\.$]{1,20}$"
                 },
                 {
                     "fieldName": "dest_host",
@@ -128,10 +128,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_host",
-                    "comment": "",
+                    "comment": "The detination host where the event occurred.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\S{1,}$"
                 },
                 {
                     "fieldName": "dest_ip",
@@ -143,10 +143,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_ip",
-                    "comment": "",
+                    "comment": "The detination IP where the event occurred.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
                 },
                 {
                     "fieldName": "duration",
@@ -158,10 +158,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "duration",
-                    "comment": "",
+                    "comment": "The duration of the event, if applicable.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d+(:?\\.\\d{1,6})?$"
                 },
                 {
                     "fieldName": "alarmCategories",
@@ -173,10 +173,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "alarmCategories",
-                    "comment": "",
-                    "possibleValues": "",
+                    "comment": "In order for UBA to better understand the meaning of the event, there should be a category mapped to it.",
+                    "possibleValues": "DOS, Exfiltration, Info, InsiderThreat, MalwareActivity, MalwareInstall, MalwarePersistence, PolicyViolation, ProductAttack, ReducedVisibility, SystemAttack, Unknown",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "(DOS|Exfiltration|Info|InsiderThreat|MalwareActivity|MalwareInstall|MalwarePersistence|PolicyViolation|ProductAttack|ReducedVisibility|SystemAttack|Unknown)"
                 },
                 {
                     "fieldName": "eventtype",
@@ -188,10 +188,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "eventtype",
-                    "comment": "",
+                    "comment": "This is a description of the event itself, coming from the Splunk eventtype field.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "severity",
@@ -203,10 +203,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "severity",
-                    "comment": "",
-                    "possibleValues": "",
+                    "comment": "The severity of the AV event.",
+                    "possibleValues": "critical, high, medium, low,informational, unknown",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "(critical|high|medium|low|informational|unknown)"
                 },
                 {
                     "fieldName": "url",
@@ -218,10 +218,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "url",
-                    "comment": "",
+                    "comment": "A URL containing more information about the vulnerability.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^(?:https?|ftp|tcp):\\/{2}.+"
                 },
                 {
                     "fieldName": "_time",
@@ -236,7 +236,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "host",
@@ -251,7 +251,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "source",
@@ -266,7 +266,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "sourcetype",
@@ -281,7 +281,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 }
             ],
             "calculations": [],

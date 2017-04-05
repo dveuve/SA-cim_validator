@@ -23,10 +23,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "action",
-                    "comment": "",
-                    "possibleValues": "",
+                    "comment": "The action taken by the data loss prevention (DLP) device.",
+                    "possibleValues": "success, failure, allowed, blocked, deferred",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^(success|failure|allowed|blocked|deferred)$"
                 },
                 {
                     "fieldName": "tag",
@@ -38,10 +38,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "tag",
-                    "comment": "",
+                    "comment": "Tags associated with the message.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "user_bunit",
@@ -53,10 +53,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "user_bunit",
-                    "comment": "",
+                    "comment": "These are derived fields provided by Asset and Identity correlation features of certain advanced applications like the Splunk App for Enterprise Security. They should be left blank when writing add-ons.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "severity",
@@ -68,10 +68,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "severity",
-                    "comment": "",
-                    "possibleValues": "",
+                    "comment": "The severity of the DLP event.",
+                    "possibleValues": "critical, high, medium, low,informational, unknown",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "(critical|high|medium|low|informational|unknown)"
                 },
                 {
                     "fieldName": "app",
@@ -83,10 +83,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "app",
-                    "comment": "",
+                    "comment": "The application protocol of the traffic.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^[\\w:\\-]+$"
                 },
                 {
                     "fieldName": "src_ip",
@@ -98,10 +98,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_ip",
-                    "comment": "",
+                    "comment": "The source IP involved in the event detected by the DLP.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
                 },
                 {
                     "fieldName": "src_host",
@@ -113,10 +113,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_host",
-                    "comment": "",
+                    "comment": "The source host involved in the event detected by the DLP.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\S{1,}$"
                 },
                 {
                     "fieldName": "dest_ip",
@@ -128,10 +128,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_ip",
-                    "comment": "",
+                    "comment": "The dest host involved in the event detected by the DLP.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
                 },
                 {
                     "fieldName": "dest_host",
@@ -143,10 +143,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_host",
-                    "comment": "",
+                    "comment": "The dest IP involved in the event detected by the DLP.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\S{1,}$"
                 },
                 {
                     "fieldName": "user",
@@ -158,10 +158,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "user",
-                    "comment": "",
+                    "comment": "The user involved with the intrusion detection event.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^[\\w\\/\\\\\\-\\.$]{1,20}$"
                 },
                 {
                     "fieldName": "category",
@@ -173,10 +173,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "category",
-                    "comment": "",
+                    "comment": "The vendor-provided category of the triggered signature. Note: This field is a string.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^.{3,50}$"
                 },
                 {
                     "fieldName": "file_name",
@@ -188,10 +188,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "file_name",
-                    "comment": "",
+                    "comment": "The name of the file that was triggered.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^.{1,255}$"
                 },
                 {
                     "fieldName": "file_path",
@@ -203,10 +203,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "file_path",
-                    "comment": "",
+                    "comment": "The path of the file that was triggered.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^.{5,2555}$"
                 },
                 {
                     "fieldName": "recipient",
@@ -218,10 +218,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "recipient",
-                    "comment": "",
+                    "comment": "A field listing individual recipient email addresses, such asrecipient=\"foo@splunk.com\",recipient=\"bar@splunk.com\".",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^.{1,255}$"
                 },
                 {
                     "fieldName": "src_user",
@@ -233,10 +233,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_user",
-                    "comment": "",
+                    "comment": "The user (email, username, name) who originated the event.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^[\\w\\/\\\\\\-\\.$]{1,20}$"
                 },
                 {
                     "fieldName": "subject",
@@ -248,10 +248,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "subject",
-                    "comment": "",
+                    "comment": "The subject of the message if applicable.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^.{1,255}$"
                 },
                 {
                     "fieldName": "policy",
@@ -263,10 +263,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "policy",
-                    "comment": "",
+                    "comment": "The policy that was violated.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^.{1,255}$"
                 },
                 {
                     "fieldName": "signature",
@@ -278,10 +278,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "signature",
-                    "comment": "",
+                    "comment": "The name of the triggered signature.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^.{3,80}$"
                 },
                 {
                     "fieldName": "_time",
@@ -296,7 +296,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "host",
@@ -311,7 +311,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "source",
@@ -326,7 +326,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "sourcetype",
@@ -341,7 +341,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 }
             ],
             "calculations": [],

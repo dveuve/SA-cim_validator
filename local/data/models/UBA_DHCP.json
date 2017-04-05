@@ -23,10 +23,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "signature",
-                    "comment": "",
+                    "comment": "An indication of the type of network session event.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^.{3,80}$"
                 },
                 {
                     "fieldName": "tag",
@@ -38,10 +38,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "tag",
-                    "comment": "",
+                    "comment": "This automatically generated field is used to access tags from within datamodels. Add-on builders do not need to populate it.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "lease_duration",
@@ -53,10 +53,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "lease_duration",
-                    "comment": "",
-                    "possibleValues": "",
+                    "comment": "The duration of the Dynamic Host Configuration Protocol (DHCP) lease, in seconds.",
+                    "possibleValues": "3600, 86400, etc",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "\\d{4,10}"
                 },
                 {
                     "fieldName": "dest_ip",
@@ -68,10 +68,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_ip",
-                    "comment": "",
+                    "comment": "The IP address of the system reporting a network session event. If the system is a Dynamic Host Configuration Protocol (DHCP) server, this is the lease IP for that server. This field is automatically provided by Asset and Identity correlation features of applications like the Splunk App for Enterprise Security.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
                 },
                 {
                     "fieldName": "dest_nt_host",
@@ -83,10 +83,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_nt_host",
-                    "comment": "",
+                    "comment": "The name of the Active Directory for the system reporting a network session event, if applicable. This field is automatically provided by Asset and Identity correlation features of applications like the Splunk App for Enterprise Security.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\S{1,}$"
                 },
                 {
                     "fieldName": "dest_mac",
@@ -98,10 +98,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_mac",
-                    "comment": "",
+                    "comment": "The MAC address of the system reporting a network session event. This field is automatically provided by Asset and Identity correlation features of applications like the Splunk App for Enterprise Security.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^[a-f0-9]{2}:[a-f0-9]{2}:[a-f0-9]{2}:[a-f0-9]{2}:[a-f0-9]{2}:[a-f0-9]{2}$"
                 },
                 {
                     "fieldName": "_time",
@@ -116,7 +116,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "host",
@@ -131,7 +131,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "source",
@@ -146,7 +146,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "sourcetype",
@@ -161,7 +161,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 }
             ],
             "calculations": [],

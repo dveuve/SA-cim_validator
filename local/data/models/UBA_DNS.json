@@ -23,10 +23,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "duration",
-                    "comment": "",
+                    "comment": "The time taken by the network resolution event, in seconds. ",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d+(:?\\.\\d{1,6})?$"
                 },
                 {
                     "fieldName": "query_type",
@@ -38,10 +38,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "query_type",
-                    "comment": "",
+                    "comment": "The field may contain DNS OpCodes or Resource Record Type codes. For details, see the Domain Name System Parameters on the Internet Assigned Numbers Authority (IANA) web site. If a value is not set, the DNS.record_type field is referenced. ",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^.{3,80}$"
                 },
                 {
                     "fieldName": "src_port",
@@ -53,10 +53,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_port",
-                    "comment": "",
+                    "comment": "The port number of the source.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d{1,5}$"
                 },
                 {
                     "fieldName": "tag",
@@ -68,10 +68,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "tag",
-                    "comment": "",
+                    "comment": "This automatically generated field is used to access tags from within datamodels. Add-on builders do not need to populate it.   ",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "ttl",
@@ -83,10 +83,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "ttl",
-                    "comment": "",
-                    "possibleValues": "",
+                    "comment": "The time-to-live of the network resolution event.",
+                    "possibleValues": "3600, 86400",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d{1,10}$"
                 },
                 {
                     "fieldName": "src_ip",
@@ -98,10 +98,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_ip",
-                    "comment": "",
+                    "comment": "The source IP of the network resolution event.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
                 },
                 {
                     "fieldName": "dest_ip",
@@ -113,10 +113,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_ip",
-                    "comment": "",
+                    "comment": "The destination IP of the network resolution event.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
                 },
                 {
                     "fieldName": "query",
@@ -128,10 +128,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "query",
-                    "comment": "",
+                    "comment": "The domain which needs to be resolved. Applies to messages of type \"Query\".",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^.{1,255}$"
                 },
                 {
                     "fieldName": "answer",
@@ -143,10 +143,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "answer",
-                    "comment": "",
+                    "comment": "Resolved address for the query.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^.{1,255}$"
                 },
                 {
                     "fieldName": "record_type",
@@ -158,10 +158,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "record_type",
-                    "comment": "",
-                    "possibleValues": "",
+                    "comment": "The DNS resource record type. For details, see the List of DNS record types on the Wikipedia web site.",
+                    "possibleValues": "Query, IQuery, Status, Notify, Update, A, MX, NS, PTR",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "(Query|IQuery|Status|Notify|Update|A|MX|NS|PTR)"
                 },
                 {
                     "fieldName": "message_type",
@@ -173,10 +173,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "message_type",
-                    "comment": "",
-                    "possibleValues": "",
+                    "comment": "Type of DNS message.",
+                    "possibleValues": "Query, Response",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "([qQ]uery|[rR]esponse)"
                 },
                 {
                     "fieldName": "_time",
@@ -191,7 +191,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "host",
@@ -206,7 +206,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "source",
@@ -221,7 +221,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "sourcetype",
@@ -236,7 +236,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 }
             ],
             "calculations": [],

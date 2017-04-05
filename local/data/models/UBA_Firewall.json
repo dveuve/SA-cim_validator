@@ -23,10 +23,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "app",
-                    "comment": "",
+                    "comment": "The application protocol of the traffic.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^[\\w:\\-]+$"
                 },
                 {
                     "fieldName": "dest_ip",
@@ -38,10 +38,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_ip",
-                    "comment": "",
+                    "comment": "The destination IP for the event.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
                 },
                 {
                     "fieldName": "dest_zone",
@@ -53,10 +53,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_zone",
-                    "comment": "",
+                    "comment": "The destination zone for the event.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^.{1,50}$"
                 },
                 {
                     "fieldName": "dest_translated_ip",
@@ -68,10 +68,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_translated_ip",
-                    "comment": "",
+                    "comment": "The NATed IPv4 or IPv6 address to which a packet has been sent.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
                 },
                 {
                     "fieldName": "duration",
@@ -83,10 +83,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "duration",
-                    "comment": "",
+                    "comment": "The amount of time for the completion of the network event, in seconds.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d+(:?\\.\\d{1,6})?$"
                 },
                 {
                     "fieldName": "protocol",
@@ -98,10 +98,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "protocol",
-                    "comment": "",
+                    "comment": "The OSI layer 3 (network) protocol of the traffic observed, in lower case. For example, ip, appletalk, ipx.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^[a-z0-9]+$"
                 },
                 {
                     "fieldName": "src_ip",
@@ -113,10 +113,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_ip",
-                    "comment": "",
+                    "comment": "The source IP for the event.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
                 },
                 {
                     "fieldName": "src_translated_ip",
@@ -128,10 +128,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_translated_ip",
-                    "comment": "",
+                    "comment": "The NATed IPv4 or IPv6 address from which a packet has been sent.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
                 },
                 {
                     "fieldName": "tag",
@@ -143,10 +143,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "tag",
-                    "comment": "",
+                    "comment": "This automatically generated field is used to access tags from within data models. Add-on builders do not need to populate it.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "action",
@@ -158,10 +158,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "action",
-                    "comment": "",
-                    "possibleValues": "",
+                    "comment": "The action taken by the network device.",
+                    "possibleValues": "success, failure, allowed, blocked, deferred",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^(success|failure|allowed|blocked|deferred)$"
                 },
                 {
                     "fieldName": "bytes",
@@ -173,10 +173,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "bytes",
-                    "comment": "",
+                    "comment": "Total count of bytes handled by this device/interface (bytes_in + bytes_out).",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d+$"
                 },
                 {
                     "fieldName": "bytes_in",
@@ -188,10 +188,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "bytes_in",
-                    "comment": "",
+                    "comment": "How many bytes this device/interface received.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^\\d+$"
                 },
                 {
                     "fieldName": "bytes_out",
@@ -203,10 +203,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "bytes_out",
-                    "comment": "",
+                    "comment": "How many bytes this device/interface transmitted.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^\\d+$"
                 },
                 {
                     "fieldName": "dest_port",
@@ -218,10 +218,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_port",
-                    "comment": "",
-                    "possibleValues": "",
+                    "comment": "The destination port of the network traffic. Note: Do not translate the values of this field to strings (tcp/80 is 80, not http). You can set up the corresponding string value in the dest_svc field.",
+                    "possibleValues": "80, 443",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^(\\d{1,5})$"
                 },
                 {
                     "fieldName": "packets_in",
@@ -233,10 +233,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "packets_in",
-                    "comment": "",
+                    "comment": "The total count of packets received by this device/interface.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d+$"
                 },
                 {
                     "fieldName": "packets_out",
@@ -248,10 +248,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "packets_out",
-                    "comment": "",
+                    "comment": "The total count of packets transmitted by this device/interface.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d+$"
                 },
                 {
                     "fieldName": "src_port",
@@ -263,10 +263,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_port",
-                    "comment": "",
+                    "comment": "The source port of the network traffic. Note: Do not translate the values of this field to strings (tcp/80 is 80, not http). You can set up the corresponding string value in the src_svc field.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\d{1,5}$"
                 },
                 {
                     "fieldName": "user",
@@ -278,10 +278,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "user",
-                    "comment": "",
+                    "comment": "The user that requested the traffic flow.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^[\\w\\/\\\\\\-\\.$]{1,20}$"
                 },
                 {
                     "fieldName": "vendor_action",
@@ -293,10 +293,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "vendor_action",
-                    "comment": "",
+                    "comment": "The action taken by the network device.",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": "^(success|failure|allowed|blocked|deferred)$"
                 },
                 {
                     "fieldName": "dest_host",
@@ -308,10 +308,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_host",
-                    "comment": "",
+                    "comment": "The destination host for the network event.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\S{1,}$"
                 },
                 {
                     "fieldName": "src_host",
@@ -323,10 +323,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_host",
-                    "comment": "",
+                    "comment": "The source host for the network event.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^\\S{1,}$"
                 },
                 {
                     "fieldName": "url",
@@ -338,10 +338,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "url",
-                    "comment": "",
+                    "comment": "The URL of the requested HTTP resource if appropriate.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^(?:https?|ftp|tcp):\\/{2}.+"
                 },
                 {
                     "fieldName": "src_zone",
@@ -353,10 +353,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_zone",
-                    "comment": "",
+                    "comment": "The network zone of the source.",
                     "possibleValues": "",
                     "is_required": "optional",
-                    "regex": ""
+                    "regex": "^.{1,50}$"
                 },
                 {
                     "fieldName": "_time",
@@ -371,7 +371,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "host",
@@ -386,7 +386,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "source",
@@ -401,7 +401,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "sourcetype",
@@ -416,7 +416,7 @@
                     "comment": "",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": ""
+                    "regex": ".*"
                 }
             ],
             "calculations": [],

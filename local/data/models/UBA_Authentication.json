@@ -23,7 +23,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "duration",
-                    "comment": ""
+                    "comment": "The amount of time for the completion of the authentication event, in seconds.",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": "^\\d+(:?\\.\\d{1,6})?$"
                 },
                 {
                     "fieldName": "tag",
@@ -35,7 +38,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "tag",
-                    "comment": ""
+                    "comment": "A tag associated with the authentication event.",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "src_ip",
@@ -47,7 +53,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_ip",
-                    "comment": ""
+                    "comment": "The source IP involved in the authentication.",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
                 },
                 {
                     "fieldName": "protocol",
@@ -59,7 +68,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "protocol",
-                    "comment": ""
+                    "comment": "The authentication protocol involved.",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": "^[a-z0-9]+$"
                 },
                 {
                     "fieldName": "dest_ip",
@@ -71,7 +83,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_ip",
-                    "comment": ""
+                    "comment": "The destination IP involved in the authentication.",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
                 },
                 {
                     "fieldName": "dest_host",
@@ -83,7 +98,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "dest_host",
-                    "comment": ""
+                    "comment": "The destination host involved in the authentication.",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "action",
@@ -95,7 +113,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "action",
-                    "comment": ""
+                    "comment": "The action performed on the resource.",
+                    "possibleValues": "success, failure, allowed, blocked, deferred",
+                    "is_required": "required",
+                    "regex": "^(success|failure|allowed|blocked|deferred)$"
                 },
                 {
                     "fieldName": "app",
@@ -107,7 +128,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "app",
-                    "comment": ""
+                    "comment": "The application involved in the event (such asssh, splunk, win:local).",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": "^[\\w:\\-]+$"
                 },
                 {
                     "fieldName": "src_host",
@@ -119,7 +143,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_host",
-                    "comment": ""
+                    "comment": "The destination host involved in the authentication.",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "eventtype",
@@ -131,7 +158,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "eventtype",
-                    "comment": ""
+                    "comment": "The type of authentication event that occurred.",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "src_user",
@@ -143,7 +173,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "src_user",
-                    "comment": ""
+                    "comment": "In privilege escalation events, src_user represents the user who initiated the privilege escalation. This field is unnecessary when an escalation has not been performed.",
+                    "possibleValues": "",
+                    "is_required": "optional",
+                    "regex": "^[\\w\\/\\\\\\-\\.$]{1,20}$"
                 },
                 {
                     "fieldName": "user",
@@ -155,7 +188,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "user",
-                    "comment": ""
+                    "comment": "The name of the user involved in the event, or who initiated the event. For authentication privilege escalation events this should represent the user targeted by the escalation.",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": "^[\\w\\/\\\\\\-\\.$]{1,20}$"
                 },
                 {
                     "fieldName": "_time",
@@ -167,7 +203,10 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "_time",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "host",
@@ -179,7 +218,10 @@
                     "hidden": true,
                     "editable": true,
                     "displayName": "host",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "source",
@@ -191,7 +233,10 @@
                     "hidden": true,
                     "editable": true,
                     "displayName": "source",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ".*"
                 },
                 {
                     "fieldName": "sourcetype",
@@ -203,7 +248,10 @@
                     "hidden": true,
                     "editable": true,
                     "displayName": "sourcetype",
-                    "comment": ""
+                    "comment": "",
+                    "possibleValues": "",
+                    "is_required": "required",
+                    "regex": ".*"
                 }
             ],
             "calculations": [],
