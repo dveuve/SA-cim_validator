@@ -39,7 +39,7 @@
                     "editable": true,
                     "displayName": "tag",
                     "comment": "This automatically generated field is used to access tags from within datamodels. Add-on builders do not need to populate it.",
-                    "possibleValues": "",
+                    "possibleValues": "tag=network tag=session",
                     "is_required": "required",
                     "regex": ".*"
                 },

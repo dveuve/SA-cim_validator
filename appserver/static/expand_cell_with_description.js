@@ -35,9 +35,9 @@ require([
             var fieldCell = _(rowData.cells).find(function (cell) {
                return cell.field === 'field';
             });
-            
+            var datamodel=mvc.Components.getInstance("submitted").get("dm")
             //update the search with the field that we are interested in
-            this._searchManager.set({ search: '| inputlookup cim_dictionary.csv | search datamodel=UBA_Proxy field=' + fieldCell.value + ' | table description'});
+            this._searchManager.set({ search: ' | inputlookup cim_dictionary.csv | fields datamodel field description possible_values | eval source="csv" | append  [| rest splunk_server=local /servicesNS/-/SA-cim_validator/data/models/' + datamodel + ' | eval myfield=spath(\'eai:data\', "objects{}.fields{}") | fields myfield | mvexpand myfield | spath input=myfield | append [| rest splunk_server=local /servicesNS/-/SA-cim_validator/data/models/' + datamodel + ' | table eai:data | rename eai:data as _raw| eval myfield=spath(_raw, "objects{}.calculations{}.outputFields{}") | where isnotnull(myfield) | fields myfield | mvexpand myfield | spath input=myfield ]| fields fieldName comment possibleValues is_required| rename fieldName as field regex as validation_regex comment as description possibleValues as possible_values  | eval datamodel="' + datamodel + '", source="rest"] | search datamodel=' + datamodel + ' field=' + fieldCell.value + ' | sort - source | head 1  | fields - _* source| transpose | rename column as "Attribute" "row 1" as "Value"'});
             // $container is the jquery object where we can put out content.
             // In this case we will render our chart and add it to the $container
             $container.append(this._tableView.render().el);

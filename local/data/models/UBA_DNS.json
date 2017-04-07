@@ -41,7 +41,7 @@
                     "comment": "The field may contain DNS OpCodes or Resource Record Type codes. For details, see the Domain Name System Parameters on the Internet Assigned Numbers Authority (IANA) web site. If a value is not set, the DNS.record_type field is referenced. ",
                     "possibleValues": "",
                     "is_required": "required",
-                    "regex": "^.{3,80}$"
+                    "regex": "^.{1,80}$"
                 },
                 {
                     "fieldName": "src_port",
@@ -69,7 +69,7 @@
                     "editable": true,
                     "displayName": "tag",
                     "comment": "This automatically generated field is used to access tags from within datamodels. Add-on builders do not need to populate it.   ",
-                    "possibleValues": "",
+                    "possibleValues": "tag=network tag=resolution tag=dns",
                     "is_required": "required",
                     "regex": ".*"
                 },
@@ -161,7 +161,7 @@
                     "comment": "The DNS resource record type. For details, see the List of DNS record types on the Wikipedia web site.",
                     "possibleValues": "Query, IQuery, Status, Notify, Update, A, MX, NS, PTR",
                     "is_required": "optional",
-                    "regex": "(Query|IQuery|Status|Notify|Update|A|MX|NS|PTR)"
+                    "regex": "^(CNAME|SOA|Query|IQuery|Status|Notify|Update|A|MX|NS|PTR|AAAA|TXT|SRV)$"
                 },
                 {
                     "fieldName": "message_type",

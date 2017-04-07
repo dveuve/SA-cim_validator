@@ -39,7 +39,7 @@
                     "editable": true,
                     "displayName": "tag",
                     "comment": "A tag associated with the authentication event.",
-                    "possibleValues": "",
+                    "possibleValues": "tag=authentication",
                     "is_required": "required",
                     "regex": ".*"
                 },

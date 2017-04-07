@@ -39,7 +39,7 @@
                     "editable": true,
                     "displayName": "tag",
                     "comment": "Tags associated with the message.",
-                    "possibleValues": "",
+                    "possibleValues": "tag=dlp tag=incident",
                     "is_required": "required",
                     "regex": ".*"
                 },

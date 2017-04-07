@@ -126,6 +126,13 @@ function saveState(){
                 console.log(SearchString)
             } 
         })
+
+        var identitySearch = mvc.Components.getInstance("identity_data_base_search_input").val().replace(/\\/g, "\\\\").replace(/\"/g, "\\\"").replace(/\$/g, "$$$")
+        if(SearchString=="" && identitySearch != "" && identitySearch!="| inputlookup LDAPSearch.csv"){
+            SearchString="| makeresults | fields - _time | eval datamodel=\"UBA_Identity\", search=\"" + identitySearch + "\""
+        }else if(identitySearch != "" && identitySearch!="| inputlookup LDAPSearch.csv"){
+            SearchString += "| append [| makeresults | fields - _time | eval datamodel=\"UBA_Identity\", search=\"" + identitySearch + "\"]"
+        }
         if(SearchString != ""){
             SearchString += " | outputlookup cim_data_input_saved.csv"
             console.log("Saving Context...", SearchString)
@@ -147,6 +154,7 @@ function saveState(){
                 }, {tokens: true, tokenNamespace: "submitted"});
             }else{
                 mvc.Components.getInstance("saveStateSearch").set("search", SearchString)
+                mvc.Components.getInstance("saveStateSearch").unset("search")
                 mvc.Components.getInstance("saveStateSearch").startSearch()
             }
 
@@ -208,7 +216,7 @@ function loadState(){
             }       
             loadStateResults.on("data", function() {
                 var data = loadStateResults.data().results;
-                console.log("Here are my results", loadStateSearch, data) 
+                console.log("Here are my restore results", loadStateSearch, data) 
                
                 $(".data_input").each(function(){
                     id = this.id.substr(11); 
@@ -218,10 +226,14 @@ function loadState(){
 
 
                 for(var datum in data){
-                    if("search" in data[datum] && "datamodel" in data[datum] && typeof data[datum].search !="undefined" && typeof data[datum].datamodel !="undefined"){
+                    if("search" in data[datum] && "datamodel" in data[datum] && typeof data[datum].search !="undefined" && typeof data[datum].datamodel !="undefined" && data[datum].datamodel !="UBA_Identity"){
                         console.log("Adding Row with ", data[datum].datamodel, data[datum].search)
                         window.addRow(data[datum].datamodel, data[datum].search)
 
+                    }else if("search" in data[datum] && "datamodel" in data[datum] && typeof data[datum].search !="undefined" && typeof data[datum].datamodel !="undefined" && data[datum].datamodel=="UBA_Identity"){
+                        console.log("Got an identity data lookup!")
+                        mvc.Components.getInstance("identity_data_base_search_input").val(data[datum].search)
+                        window.launch_identity_base_search()
                     }
                 }
                 $(".data_input").each(function(){
@@ -398,7 +410,7 @@ require([
         </div>\
         <div style="display:inline-block;  width: 80px; height: 60px; text-align: center; margin: auto;" id="fields_remove_link_'+ id + '"><a href=\"#\" onclick=\"removeSource(' + id + '); return false;\">Remove</a></div>\
         <div style="display:inline-block;  width: 80px; height: 60px; text-align: center; margin: auto;" id="fields_required_'+ id + '"><h3>Required</h3></div>\
-        <div style="display:inline-block;  width: 80px; height: 60px; text-align: center; margin: auto;" id="fields_preferred_'+ id + '"><h3>Preferred</h3></div>\
+        <div style="display:none;  width: 80px; height: 60px; text-align: center; margin: auto;" id="fields_preferred_'+ id + '"><h3>Preferred</h3></div>\
         <div style="display:inline-block;  width: 80px; height: 60px; text-align: center; margin: auto;" id="fields_all_'+ id + '"><h3>All</h3></div>\
         <div style="display:inline-block;  width: 80px; height: 60px; text-align: center; margin: auto;" id="submit_'+ id + '"><button class="btn btn-primary " id="submitButton_' + id + '" onclick="RunCheck('+id+')">Run Check</button></div>\
         <div style="display:inline-block;  width: 150px; height: 60px; text-align: center; margin: auto;" id="link_'+ id + '"><a href="javascript:openValidation('+id+')">Open in Validation View</a></div>\
@@ -423,6 +435,8 @@ require([
 
         input2.on("change", function(newValue) {
             FormUtils.handleValueChange(input2);
+            UpdateSearchStringForId(this.id.substr(7))
+            
         });
         
         
@@ -435,6 +449,8 @@ require([
 
         vsearch_bar.on("change", function(newValue) {
             FormUtils.handleValueChange(vsearch_bar);
+            UpdateSearchStringForId(this.id.substr(12))
+            
         });
 
 
@@ -549,10 +565,15 @@ require([
 
 
         console.log("DV - Setting the search string to..", "| datamodel $dm_" + id + "$ | rex max_match=999 \"fieldName\\\":\\\"(?<field>[^\\\"]+)\" | stats values(field) as field | mvexpand field  | where NOT match(field, \"_time|host|sourcetype|source|[A-Z]+|_bunit|_category|_priority|_requires_av|_should_update\") OR match(field, \"object_category\")   | join type=outer field [ search $cim_search_" + id + "$ | head 10000 | fieldsummary maxvals=15 | eventstats max(count) AS total | eval percent_coverage=round(count/total*100, 2) | table field, percent_coverage, distinct_count, total, values]  | spath input=values | rename {}.value AS sample_values {}.count AS sample_count distinct_count AS distinct_value_count total AS total_events  | fillnull value=0 percent_coverage, distinct_value_count, total_events   | mvmath field=sample_count field2=total_events | eval field_values=mvzip(mvmath_result, sample_values, \" \")  | lookup cim_validation_regex field | mvrex showcount=t showunmatched=t field=sample_values validation_regex  | eval is_cim_valid=case(total_events==0, \"severe!!!no extracted values found\", percent_coverage < 90, \"elevated!!!event coverage less than 90%\", mvrex_unmatched_count > 0, \"elevated!!!found \".mvrex_unmatched_count.\" unexpected values (\".mvjoin(mvrex_unmatched, \", \").\")\", isnull(validation_regex) OR validation_regex==\"\", \"check!!!no validation regex was found to evaluate\", 1==1, \"low!!!looking good!\")| eval datamodel=\"$dm_" + id + "$\" | lookup cim_dictionary.csv field datamodel  | table field, total_events, distinct_value_count, percent_coverage, field_values, is_required, is_cim_valid, description")
+        var mySearchString = "| datamodel $dm_" + id + "$ | rex max_match=999 \"fieldName\\\":\\\"(?<field>[^\\\"]+)\" | stats values(field) as field | mvexpand field  | where NOT match(field, \"_time|host|sourcetype|source|[A-Z]+|_bunit|_category|_priority|_requires_av|_should_update\") OR match(field, \"object_category\")   | join type=outer field [search $cim_search_" + id + "$ | head 10000 | fieldsummary maxvals=15 | eventstats max(count) AS total | eval percent_coverage=round(count/total*100, 2) | table field, percent_coverage, distinct_count, total, values]  | spath input=values | rename {}.value AS sample_values {}.count AS sample_count distinct_count AS distinct_value_count total AS total_events  | fillnull value=0 percent_coverage, distinct_value_count, total_events   | mvmath field=sample_count field2=total_events | eval field_values=mvzip(mvmath_result, sample_values, \" \") | join type=outer field [| rest splunk_server=local /servicesNS/-/SA-cim_validator/data/models/$dm_" + id + "$ | eval myfield=spath('eai:data', \"objects{}.fields{}\") | fields myfield | mvexpand myfield | spath input=myfield | append [| rest splunk_server=local /servicesNS/-/SA-cim_validator/data/models/$dm_" + id + "$ | table eai:data | rename eai:data as _raw| eval myfield=spath(_raw, \"objects{}.calculations{}.outputFields{}\") | where isnotnull(myfield) | fields myfield | mvexpand myfield | spath input=myfield ]| rename fieldName as field regex as validation_regex | fields field comment possibleValues validation_regex is_required] | lookup cim_validation_regex field OUTPUTNEW | mvrex showcount=t showunmatched=t field=sample_values validation_regex  | eval is_cim_valid=case(total_events==0, \"severe!!!no extracted values found\", percent_coverage < 90, \"elevated!!!event coverage less than 90%\", mvrex_unmatched_count > 0, \"elevated!!!found \".mvrex_unmatched_count.\" unexpected values (\".mvjoin(mvrex_unmatched, \", \").\")\", isnull(validation_regex) OR validation_regex==\"\", \"check!!!no validation regex was found to evaluate\", 1==1, \"low!!!looking good!\")| eval datamodel=\"$dm_" + id + "$\" | lookup cim_dictionary.csv field datamodel OUTPUTNEW | table field, total_events, distinct_value_count, percent_coverage, field_values, is_required, is_cim_valid, description"
+        if(passed_searchString.indexOf("inputlookup") > 0 || passed_searchString.indexOf("datamodel search") > 0){
+            mySearchString = mySearchString.replace("[search", "[")
+        }
         var cim_base = new SearchManager({
             "id": "cim_base_" + id,
             "sample_ratio": null,
-            "search": "| datamodel $dm_" + id + "$ | rex max_match=999 \"fieldName\\\":\\\"(?<field>[^\\\"]+)\" | stats values(field) as field | mvexpand field  | where NOT match(field, \"_time|host|sourcetype|source|[A-Z]+|_bunit|_category|_priority|_requires_av|_should_update\") OR match(field, \"object_category\")   | join type=outer field [search $cim_search_" + id + "$ | head 10000 | fieldsummary maxvals=15 | eventstats max(count) AS total | eval percent_coverage=round(count/total*100, 2) | table field, percent_coverage, distinct_count, total, values]  | spath input=values | rename {}.value AS sample_values {}.count AS sample_count distinct_count AS distinct_value_count total AS total_events  | fillnull value=0 percent_coverage, distinct_value_count, total_events   | mvmath field=sample_count field2=total_events | eval field_values=mvzip(mvmath_result, sample_values, \" \")  | lookup cim_validation_regex field | mvrex showcount=t showunmatched=t field=sample_values validation_regex  | eval is_cim_valid=case(total_events==0, \"severe!!!no extracted values found\", percent_coverage < 90, \"elevated!!!event coverage less than 90%\", mvrex_unmatched_count > 0, \"elevated!!!found \".mvrex_unmatched_count.\" unexpected values (\".mvjoin(mvrex_unmatched, \", \").\")\", isnull(validation_regex) OR validation_regex==\"\", \"check!!!no validation regex was found to evaluate\", 1==1, \"low!!!looking good!\")| eval datamodel=\"$dm_" + id + "$\" | lookup cim_dictionary.csv field datamodel  | table field, total_events, distinct_value_count, percent_coverage, field_values, is_required, is_cim_valid, description",
+            "search": "",
+            //"search": DefineNewSearchString(id, passed_searchString),
             "latest_time": "$timerange.latest$",
             "status_buckets": 0,
             "cancelOnUnload": true,
@@ -563,7 +584,7 @@ require([
             "runWhenTimeIsUndefined": false
         }, {tokens: true, tokenNamespace: "submitted"});
 
-        
+        UpdateSearchStringForId(id)
         var myResults = cim_base.data('results', { output_mode:'json', count:0 });
         cim_base.on('search:done', function(properties) {
             if(cim_base.attributes.data.resultCount == 0) {
@@ -594,5 +615,26 @@ require([
     $("#saveStateButton").click(function(){saveState()})
     $("#loadStateButton").click(function(){loadState()})
     $("#addRowButton").click(function(){window.addRow()})
+
+    function UpdateSearchStringForId(id){
+        console.log("Updating everything for ", id)
+        if(mvc.Components.getInstance("vsearch_bar_" + id) && mvc.Components.getInstance("input2_" + id)){
+            var passed_searchString = mvc.Components.getInstance("vsearch_bar_" + id).val()
+            var dm = mvc.Components.getInstance("input2_" + id).val()
+            if(dm!="undefined" && passed_searchString !="undefined"){
+                var mySearchString = "| datamodel $dm_" + id + "$ | rex max_match=999 \"fieldName\\\":\\\"(?<field>[^\\\"]+)\" | stats values(field) as field | mvexpand field  | where NOT match(field, \"_time|host|sourcetype|source|[A-Z]+|_bunit|_category|_priority|_requires_av|_should_update\") OR match(field, \"object_category\")   | join type=outer field [search $cim_search_" + id + "$ | head 10000 | fieldsummary maxvals=15 | eventstats max(count) AS total | eval percent_coverage=round(count/total*100, 2) | table field, percent_coverage, distinct_count, total, values]  | spath input=values | rename {}.value AS sample_values {}.count AS sample_count distinct_count AS distinct_value_count total AS total_events  | fillnull value=0 percent_coverage, distinct_value_count, total_events   | mvmath field=sample_count field2=total_events | eval field_values=mvzip(mvmath_result, sample_values, \" \") | join type=outer field [| rest splunk_server=local /servicesNS/-/SA-cim_validator/data/models/$dm_" + id + "$ | eval myfield=spath('eai:data', \"objects{}.fields{}\") | fields myfield | mvexpand myfield | spath input=myfield | append [| rest splunk_server=local /servicesNS/-/SA-cim_validator/data/models/$dm_" + id + "$ | table eai:data | rename eai:data as _raw| eval myfield=spath(_raw, \"objects{}.calculations{}.outputFields{}\") | where isnotnull(myfield) | fields myfield | mvexpand myfield | spath input=myfield ]| rename fieldName as field regex as validation_regex | fields field comment possibleValues validation_regex is_required] | lookup cim_validation_regex field OUTPUTNEW | mvrex showcount=t showunmatched=t field=sample_values validation_regex  | eval is_cim_valid=case(total_events==0, \"severe!!!no extracted values found\", percent_coverage < 90, \"elevated!!!event coverage less than 90%\", mvrex_unmatched_count > 0, \"elevated!!!found \".mvrex_unmatched_count.\" unexpected values (\".mvjoin(mvrex_unmatched, \", \").\")\", isnull(validation_regex) OR validation_regex==\"\", \"check!!!no validation regex was found to evaluate\", 1==1, \"low!!!looking good!\")| eval datamodel=\"$dm_" + id + "$\" | lookup cim_dictionary.csv field datamodel OUTPUTNEW | table field, total_events, distinct_value_count, percent_coverage, field_values, is_required, is_cim_valid, description"
+                if(passed_searchString.indexOf("inputlookup") > 0 || passed_searchString.indexOf("datamodel search") > 0){
+                    mySearchString = mySearchString.replace("[search", "[")
+                }
+                
+                mySearchString = mySearchString.replace(/\$dm_\d*\$/g, dm).replace(/\$cim_search_\d*\$/g, passed_searchString)
+                
+                
+                    mvc.Components.getInstance("cim_base_" + id).settings.unset("search")
+                    mvc.Components.getInstance("cim_base_" + id).settings.set("search", mySearchString)
+                   
+            }
+        }
+    }
 
 });

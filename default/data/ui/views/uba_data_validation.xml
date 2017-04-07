@@ -1,4 +1,4 @@
-<form script="data_input_dashboard_version.js" stylesheet="table_decorations.css,resize_inputs.css">
+<form script="data_input_dashboard_version.js,uba_identity_data_coverage.js" stylesheet="table_decorations.css,resize_inputs.css">
   <label>UBA Data Validation</label>
 
   <row>
@@ -11,6 +11,16 @@
         </div>
 
         <div id="data_inputs">
+        </div>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Identity Data Coverage</title>
+      <html>
+        <div id="identity_data_container">
+          <p>UBA requires Identity Data to join together the activities of administrative accounts with those of an employee's non-administrative account. Typically you will have a lookup on the local system that is updated daily, and then do some manipulation of that.</p>
         </div>
       </html>
     </panel>

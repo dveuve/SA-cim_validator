@@ -24,7 +24,7 @@
                     "editable": true,
                     "displayName": "tag",
                     "comment": "This is required by UBA to understand that the data is proxy data, and also for the data model itself to function.",
-                    "possibleValues": "web",
+                    "possibleValues": "tag=web",
                     "is_required": "required",
                     "regex": "(\\w*)"
                 },

@@ -69,7 +69,7 @@
                     "editable": true,
                     "displayName": "tag",
                     "comment": "",
-                    "possibleValues": "",
+                    "possibleValues": "tag=email",
                     "is_required": "required",
                     "regex": ".*"
                 },
