@@ -35,123 +35,8 @@ require([
         SubmitButton,
         PostProcessManager
     ){
-
-    /*    var search9 = new SearchManager({
-            "id": "datamodel_search",
-            "sample_ratio": null,
-            "search": "| datamodel            | spath modelName           | table modelName           | sort  modelName",
-            
-            "status_buckets": 0,
-            "cancelOnUnload": true,
-            
-            "app": utils.getCurrentApp(),
-            "auto_cancel": 90,
-            "preview": true,
-            "runWhenTimeIsUndefined": false
-        }, {tokens: true});
-
-        var input1 = new TimeRangeInput({
-            "id": "input1",
-            "searchWhenChanged": true,
-            "default": {"latest_time": "now", "earliest_time": "-30d@d"},
-            "earliest_time": "$form.timerange.earliest$",
-            "latest_time": "$form.timerange.latest$",
-            "el": $('#input1')
-        }, {tokens: true}).render();
-
-        input1.on("change", function(newValue) {
-            FormUtils.handleValueChange(input1);
-
-                $(".data_input").each(function(){
-                    id = this.id.substr(11); 
-                    RunCheck(id)
-                    
-                })
-
-        });
-
-
-        var vsearch_bar = new TextInput({
-            "id": "vsearch_bar_" + id,
-            "value": "$form.cim_search_" + id + "$",
-            "default": passed_searchString,
-            "el": $('#vsearch_bar_' + id)
-        }, {tokens: true}).render();
-
-        vsearch_bar.on("change", function(newValue) {
-            FormUtils.handleValueChange(vsearch_bar);
-            UpdateSearchStringForId(this.id.substr(12))
-            
-        });
-
-
-        var search4 = new PostProcessManager({
-            "search": "| stats count(eval(is_required=\"required\")) as count sum(eval(if(is_required=\"required\" AND NOT match(is_cim_valid, \"^low\"), 1, 0))) AS bad | eval percent=round((1 -(bad/count))*100) | table percent",
-            "managerid": "cim_base_" + id,
-            "id": "fields_required_" + id
-        }, {tokens: true, tokenNamespace: "submitted"});
-
-        
-
-        var myResults4 = search4.data('results', { output_mode:'json', count:0 });
-        search4.on('search:done', function(properties) {
-            if(search4.attributes.data.resultCount == 0) {
-              return;
-            }       
-            myResults4.on("data", function() {
-                var data = myResults4.data().results;
-                console.log("Here are my results", search4, data)
-                var mycolor=""
-                if(data[0].percent <= 99){
-                    mycolor = "color: darkred;"
-                }else if(data[0].percent <= 100){
-                    mycolor = "color: darkgreen;"
-                }
-                $("#fields_required_" + id).html("<h3>Required</h3>\n<center><bold style=\"" + mycolor + "\">" + data[0].percent + "%</bold></center>") 
-            });
-          });
-
-
-        var cim_base = new SearchManager({
-            "id": "cim_base_" + id,
-            "sample_ratio": null,
-            "search": "",
-            //"search": DefineNewSearchString(id, passed_searchString),
-            "latest_time": "$timerange.latest$",
-            "status_buckets": 0,
-            "cancelOnUnload": true,
-            "earliest_time": "$timerange.earliest$",
-            "app": utils.getCurrentApp(),
-            "auto_cancel": 90,
-            "preview": true,
-            "runWhenTimeIsUndefined": false
-        }, {tokens: true, tokenNamespace: "submitted"});
-
-        UpdateSearchStringForId(id)
-        var myResults = cim_base.data('results', { output_mode:'json', count:0 });
-        cim_base.on('search:done', function(properties) {
-            if(cim_base.attributes.data.resultCount == 0) {
-              $("#fields_required_" + id).html("<h3>Required</h3>\n<center></center>") 
-            $("#fields_preferred_" + id).html("<h3>Required</h3>\n<center></center>") 
-            $("#fields_optional_" + id).html("<h3>Required</h3>\n<center></center>") 
-          return;
-            }       
-            myResults.on("data", function() {
-                var data = myResults.data().results;
-                console.log("Here are my results", cim_base, data) 
-            });
-          });
-
-        cim_base.on('search:start', function(properties) {
-            if(typeof mvc.Components.getInstance("default").attributes["cim_search_" + id] != "undefined" && mvc.Components.getInstance("default").attributes["cim_search_" + id].length){
-                $("#fields_required_" + id).html("<h3>Required</h3>\n<center><img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/icon_processing.gif\" title=\"Processing...\" /></center>") 
-                $("#fields_preferred_" + id).html("<h3>Required</h3>\n<center><img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/icon_processing.gif\" title=\"Processing...\" /></center>") 
-                $("#fields_optional_" + id).html("<h3>Required</h3>\n<center><img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/icon_processing.gif\" title=\"Processing...\" /></center>") 
-            }
-          });
-
-
-*/
+    var appName = utils.getCurrentApp()
+   
         console.log("Kicking off Identity Processing")
         $("#identity_data_container").append("<div id=\"identity_data_base_search_container\"><div style=\"display: inline-block\" id=\"identity_data_base_search_el\"></div><div style=\"display: inline-block\" id=\"identity_data_base_search_button\"><button class=\"btn btn-primary \" id=\"identity_data_launch\" onclick=\"window.launch_identity_base_search()\">Analyze</button>&nbsp;&nbsp;</div><div style=\"display: inline-block\" id=\"identity_data_base_search_progress\"></div></div><div><table class=\"table\" id=\"identity_data_individual_checks\" style=\"display: none\"><tr><td style=\"width: 350px\">Check</td><td style=\"width: 100px\">Status</td><td style=\"width: calc(100% - 450px)\">Description</td></tr></table>")
 
@@ -179,29 +64,29 @@ require([
             "runWhenTimeIsUndefined": false
         }, {tokens: true, tokenNamespace: "submitted"});
         cim_base.on("search:start", function(){
-            $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/icon_processing.gif\" title=\"Processing...\" />")
+            $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/icon_processing.gif\" title=\"Processing...\" />")
             $("#identity_data_individual_checks").css("display", "none")
         })
         cim_base.on("search:error", function(){
-            $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/err_ico.gif\" title=\"Error\" />")
+            $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/err_ico.gif\" title=\"Error\" />")
         })
         cim_base.on("search:fail", function(){
-            $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/err_ico.gif\" title=\"Error\" />")
+            $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/err_ico.gif\" title=\"Error\" />")
         })
         cim_base.on("search:cancelled", function(){
-            $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/err_ico.gif\" title=\"Error\" />")
+            $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/err_ico.gif\" title=\"Error\" />")
         })
 
 
             cim_base.on('search:done', function(properties) {
                 if(cim_base.attributes.data.resultCount == 0) {
-                  $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/err_ico.gif\" title=\"Error\" />")
+                  $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/err_ico.gif\" title=\"Error\" />")
                 } else{
-                    $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/ok_ico.gif\" title=\"Got Results\" />")
+                    $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/ok_ico.gif\" title=\"Got Results\" />")
                     $("#identity_data_individual_checks").css("display", "block")
                     for(var name in window.HRChecks){if(window.HRChecks.hasOwnProperty(name)){
-                        //$("#identity_link_" + name).attr("href", "/app/SA-cim_validator/search?sid=" + window.HRChecks[name].search_manager.attributes.data.sid)
-                        $("#identity_data_check_" + name + '_status').html('<img style="width: 20px; height: 20px;" src="/static/app/SA-cim_validator/icon_processing.gif" title="Processing..." />')
+                        
+                        $("#identity_data_check_" + name + '_status').html('<img style="width: 20px; height: 20px;" src="/static/app/' + appName + '/icon_processing.gif" title="Processing..." />')
                         $("#identity_data_check_" + name + '_description').html("")
                     }}
                 }
@@ -236,7 +121,7 @@ require([
             console.log("Kicking off severity: ", severity)
             console.log("Kicking off description: ", description)
             console.log("Kicking off search: ", search)
-            $("#identity_data_individual_checks").append('<tr><td  style=\"width: 350px\">' + description + '</td><td style=\"width: 75px\" class="identity_data_check_status" id="identity_data_check_' + name + '_status"><!-- <img style="width: 20px; height: 20px;" src="/static/app/SA-cim_validator/icon_processing.gif" title="Processing..." /> --></td><td style=\"width: calc(100% - 450px)\" class="identity_data_check_description" id="identity_data_check_' + name + '_description"></td></tr>')
+            $("#identity_data_individual_checks").append('<tr><td  style=\"width: 350px\">' + description + '</td><td style=\"width: 75px\" class="identity_data_check_status" id="identity_data_check_' + name + '_status"><!-- <img style="width: 20px; height: 20px;" src="/static/app/' + appName + '/icon_processing.gif" title="Processing..." /> --></td><td style=\"width: calc(100% - 450px)\" class="identity_data_check_description" id="identity_data_check_' + name + '_description"></td></tr>')
             window.HRChecks[name] = []
             window.HRChecks[name].search_manager = new PostProcessManager({
                 "search": search,
@@ -244,35 +129,25 @@ require([
                 "id": "identity_" + name
             }, {tokens: true, tokenNamespace: "submitted"});
             
-            /*
-            window.HRChecks[name].search_manager.on('search:stop', function(properties) {
-                $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/err_ico.gif\" title=\"Error\" />")
-            })
-            window.HRChecks[name].search_manager.on('search:error', function(properties) {
-                $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/err_ico.gif\" title=\"Error\" />")
-            })
-            window.HRChecks[name].search_manager.on('search:fail', function(properties) {
-                $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/err_ico.gif\" title=\"Error\" />")
-            })*/
                
             window.HRChecks[name].results = window.HRChecks[name].search_manager.data('results', { output_mode:'json', count:0 });
             window.HRChecks[name].search_manager.on('search:done', function(properties) {
                 if(window.HRChecks[name].search_manager.attributes.data.resultCount == 0) {
-                  $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/err_ico.gif\" title=\"Error\" />")
+                  $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/err_ico.gif\" title=\"Error\" />")
                 }       
                 window.HRChecks[name].results.on("data", function() {
                     var data = window.HRChecks[name].results.data().results;
                     console.log("Here are my results", window.HRChecks[name].search_manager, data)
                     if(data[0].status == "bad"){
                         if(severity=="error"){
-                            $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/err_ico.gif\" title=\"Error\" />")
+                            $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/err_ico.gif\" title=\"Error\" />")
                         }else{
-                            $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/warn_ico.gif\" title=\"Warning\" />")
+                            $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/warn_ico.gif\" title=\"Warning\" />")
                         }
                         
                         $("#identity_data_check_" + name + '_description').html("<p>" + data[0].description + "</p>")
                     }else{
-                        $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/SA-cim_validator/ok_ico.gif\" title=\"Got Results\" />")
+                        $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/ok_ico.gif\" title=\"Got Results\" />")
                         $("#identity_data_check_" + name + '_description').html("<p>" + data[0].description + "</p>")
                     }
                     

@@ -19,6 +19,7 @@ require([
         DashboardController,
         Ready
         ) {
+    var appName = utils.getCurrentApp()
 
 
             var unsubmittedTokens = mvc.Components.getInstance('default');
