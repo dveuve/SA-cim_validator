@@ -5,15 +5,18 @@ function checkOverallData(){
     "splunkjs/mvc/utils",
     "splunkjs/mvc/tokenutils",
     'splunkjs/mvc/searchmanager',
+    'jquery',
     'splunkjs/mvc/simplexml/ready!'],function(
     mvc,
     FormUtils,
         utils,
         TokenUtils,
-        SearchManager
+        SearchManager,
+        $
     ){
         var appName = utils.getCurrentApp()
-        var Response = "<p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. Please supply additional data sources.<p>"
+        //var Response = "<p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. Please supply additional data sources.<p>"
+        var Response = '<table class="table" id="data_source_summary_table"><tr><td>Data Type</td><td>Required?</td><td>Present?</td></tr>';
         var divid = "data_summary_overall"
         var myTypes = {              
             "UBA_AD": 0,
@@ -44,8 +47,8 @@ function checkOverallData(){
             "UBA_Secure_Web_Gateway": "Secure Web Gateway",
             "UBA_VPN": "VPN",
             "UBA_Proxy": "Secure Proxy"}
-        var requiredTypes = ["UBA_AD","UBA_DHCP","UBA_DNS","UBA_Firewall","UBA_Proxy"]
-        var preferredTypes = ["UBA_Host_AV","UBA_VPN"]
+        var requiredTypes = ["UBA_AD","UBA_DHCP","UBA_VPN","UBA_Firewall","UBA_Proxy"]
+        var preferredTypes = ["UBA_Host_AV","UBA_DNS"]
 
         $(".data_input").each(function(){
             id = this.id.substr(11); 
@@ -59,10 +62,11 @@ function checkOverallData(){
         var presentRequiredTypes = []
         var missingPreferredTypes = preferredTypes
         var presentPreferredTypes = []
+        
         for(var myType in myTypes){
             if(myTypes[myType]>0){
                 presentTypes++;
-            }
+            }/*
             if(missingRequiredTypes.indexOf(myType)>=0 && myTypes[myType]>0){
                 missingRequiredTypes.splice(missingRequiredTypes.indexOf(myType), 1)
                 presentRequiredTypes.push(myType)
@@ -70,31 +74,48 @@ function checkOverallData(){
             if(missingPreferredTypes.indexOf(myType)>=0 && myTypes[myType]>0){
                 missingPreferredTypes.splice(missingPreferredTypes.indexOf(myType), 1)
                 presentPreferredTypes.push(myType)
-            }        
+            }*/
+            var isRequired = ""
+            if(requiredTypes.indexOf(myType)>=0){
+                isRequired = "Required"
+            }else if(preferredTypes.indexOf(myType)>=0){
+                isRequired = "Preferred"
+            } 
+            console.log("looking for myType..", myTypes[myType], myType, isRequired)
+            if(isRequired == "Required"){
+                if(myTypes[myType]>0){
+                    console.log("looking for myType..", myTypes[myType])
+                //    if($(".input-dropdown:contains( " + myType + ")").parent().parent().find("div:contains(Required)").last().find("bold").text() == "100%"){
+                    Response += "<tr><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/ok_ico.gif\" title=\"OK\" /></td>";
+                    
+                }else{
+                    Response += "<tr><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/err_ico.gif\" title=\"Error\" /></td>";
+                }
+            }else if(isRequired == "Preferred"){
+                if(myTypes[myType]>0){
+                    console.log("looking for myType..", myTypes[myType])
+                //    if($(".input-dropdown:contains( " + myType + ")").parent().parent().find("div:contains(Required)").last().find("bold").text() == "100%"){
+                    Response += "<tr><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/ok_ico.gif\" title=\"OK\" /></td>";
+                    
+                }else{
+                    Response += "<tr><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/warn_ico.gif\" title=\"Warning\" /></td>";
+                }
+            }else{
+                if(myTypes[myType]>0){
+                    
+                //    if($(".input-dropdown:contains( " + myType + ")").parent().parent().find("div:contains(Required)").last().find("bold").text() == "100%"){
+                    Response += "<tr><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/ok_ico.gif\" title=\"OK\" /></td>";
+                    
+                }else{
+                    Response += "<tr><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"></td>";
+                }
+            }
         }
-        for(var i = 0; i < missingRequiredTypes.length; i++){missingRequiredTypes[i] = myTypes_Pretty[missingRequiredTypes[i]];}
-        for(var i = 0; i < missingPreferredTypes.length; i++){missingPreferredTypes[i] = myTypes_Pretty[missingPreferredTypes[i]];}
-        for(var i = 0; i < presentRequiredTypes.length; i++){presentRequiredTypes[i] = myTypes_Pretty[presentRequiredTypes[i]];}
-        for(var i = 0; i < presentPreferredTypes.length; i++){presentPreferredTypes[i] = myTypes_Pretty[presentPreferredTypes[i]];}
-        if(presentTypes == 0){
-            Response = "<p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. Please add your data sources.<p>"
-        }else if(missingRequiredTypes.length>0 && missingPreferredTypes.length>0 && presentPreferredTypes.length>0 && presentRequiredTypes.length>0){
-            Response = "<p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. It is great that you have required sources (" + presentRequiredTypes.join(", ") + ") and preferred sources (" + presentPreferredTypes.join(", ") + "), but you are still missing required (" + missingRequiredTypes.join(", ") + ") and preferred (" + missingPreferredTypes.join(", ") + ") types. Please add additional data sources.<p>"
-        }else if(missingRequiredTypes.length>0 && missingPreferredTypes.length>0 && presentPreferredTypes.length==0 && presentRequiredTypes.length>0){
-            Response = "<p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. It is great that you have required sources (" + presentRequiredTypes.join(", ") + "), but you are still missing required (" + missingRequiredTypes.join(", ") + ") and preferred (" + missingPreferredTypes.join(", ") + ") types. Please add additional data sources.<p>"
-        }else if(missingRequiredTypes.length>0 && missingPreferredTypes.length>0 && presentPreferredTypes.length>0 && presentRequiredTypes.length==0){
-            Response = "<p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. It is great that you have preferred sources (" + presentPreferredTypes.join(", ") + "), but you are still missing required (" + missingRequiredTypes.join(", ") + ") and preferred (" + missingPreferredTypes.join(", ") + ") types. Please add additional data sources.<p>"
-        }else if(presentPreferredTypes.length==0 && presentRequiredTypes.length==0){
-            Response = "<p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. It is great that you added some sources, but you are still missing required (" + missingRequiredTypes.join(", ") + ") and preferred (" + missingPreferredTypes.join(", ") + ") types. Please add additional data sources.<p>"
-        }else if(missingRequiredTypes.length==0 && missingPreferredTypes.length>0){
-            Response = "<p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. You have all the required sources, which is great! Double check their completion percentage above, though, and if you have them, add preferred (" + missingPreferredTypes.join(", ") + ") sources.<p>"
-        }else if(missingRequiredTypes.length>0 && missingPreferredTypes.length==0){
-            Response = "<p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. You have all the (non-required but) preferred sources, which is great! Double check their completion percentage above, though, and add the required (" + missingRequiredTypes.join(", ") + ") sources.<p>"
-        }else{
-            Response = "<p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. Please add your data sources.<p>"
-        }
-        console.log("Response", Response, missingRequiredTypes.length, missingPreferredTypes.length, presentPreferredTypes.length, presentRequiredTypes.length)
+       
+        Response += "</table>"
         $("#data_summary_overall").html(Response)
+        
+        
     })
     
 }
@@ -480,9 +501,13 @@ require([
                 var mycolor=""
                 if(data[0].percent <= 99){
                     mycolor = "color: darkred;"
+                    if($("#status_" + mvc.Components.getInstance("input2_" + id).val()).find("img").attr("src").indexOf("ok_") >=0){
+                        $("#status_" + mvc.Components.getInstance("input2_" + id).val()).find("img").attr("src", "/static/app/" + appName + "/err_ico.gif")
+                    }
                 }else if(data[0].percent <= 100){
                     mycolor = "color: darkgreen;"
                 }
+
                 $("#fields_required_" + id).html("<h3>Required</h3>\n<center><bold style=\"" + mycolor + "\">" + data[0].percent + "%</bold></center>") 
             });
           });
