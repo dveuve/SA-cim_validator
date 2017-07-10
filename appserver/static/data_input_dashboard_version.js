@@ -1,3 +1,5 @@
+window.generalStatus = []
+
 function checkOverallData(){
     require([
     'splunkjs/mvc',
@@ -16,8 +18,13 @@ function checkOverallData(){
     ){
         var appName = utils.getCurrentApp()
         //var Response = "<p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. Please supply additional data sources.<p>"
-        var Response = '<table class="table" id="data_source_summary_table"><tr><td>Data Type</td><td>Required?</td><td>Present?</td></tr>';
+        var Response = '<table class="table" id="data_source_summary_table"><tr><td>Type</td><td>Data Type</td><td>Required?</td><td>Present?</td></tr>';
         var divid = "data_summary_overall"
+        if(typeof window.generalStatus.identity == "undefined")
+            window.generalStatus.identity = "err"
+        Response += "<tr><td>Identity Data</td><td>Splunk Identity</td><td>Required</td><td id=\"status_identity\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/" + window.generalStatus['identity'] + "_ico.gif\" title=\"" + window.generalStatus['identity'] + "\" /></td></tr>"
+        Response += "<tr><td>Role Permissions</td><td>Splunk authorize.conf</td><td>Required</td><td id=\"status_role_checks\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/" + window.generalStatus["role_checks"] + "_ico.gif\" title=\"" + window.generalStatus["role_checks"] + "\" /></td></tr>"
+
         var myTypes = {              
             "UBA_AD": 0,
             "UBA_Authentication": 0,
@@ -66,15 +73,11 @@ function checkOverallData(){
         for(var myType in myTypes){
             if(myTypes[myType]>0){
                 presentTypes++;
-            }/*
-            if(missingRequiredTypes.indexOf(myType)>=0 && myTypes[myType]>0){
-                missingRequiredTypes.splice(missingRequiredTypes.indexOf(myType), 1)
-                presentRequiredTypes.push(myType)
-            }        
-            if(missingPreferredTypes.indexOf(myType)>=0 && myTypes[myType]>0){
-                missingPreferredTypes.splice(missingPreferredTypes.indexOf(myType), 1)
-                presentPreferredTypes.push(myType)
-            }*/
+            }
+            if(typeof window.generalStatus[myType] == "undefined"){
+                window.generalStatus[myType] = "ok"
+            }
+                  
             var isRequired = ""
             if(requiredTypes.indexOf(myType)>=0){
                 isRequired = "Required"
@@ -83,33 +86,28 @@ function checkOverallData(){
             } 
             console.log("looking for myType..", myTypes[myType], myType, isRequired)
             if(isRequired == "Required"){
-                if(myTypes[myType]>0){
-                    console.log("looking for myType..", myTypes[myType])
-                //    if($(".input-dropdown:contains( " + myType + ")").parent().parent().find("div:contains(Required)").last().find("bold").text() == "100%"){
-                    Response += "<tr><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/ok_ico.gif\" title=\"OK\" /></td>";
-                    
+                if(myTypes[myType]>0 && window.generalStatus[myType] == "ok"){
+                    window.generalStatus[myType] = "ok"
                 }else{
-                    Response += "<tr><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/err_ico.gif\" title=\"Error\" /></td>";
+                    window.generalStatus[myType] = "err"
                 }
             }else if(isRequired == "Preferred"){
-                if(myTypes[myType]>0){
-                    console.log("looking for myType..", myTypes[myType])
-                //    if($(".input-dropdown:contains( " + myType + ")").parent().parent().find("div:contains(Required)").last().find("bold").text() == "100%"){
-                    Response += "<tr><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/ok_ico.gif\" title=\"OK\" /></td>";
-                    
+                if(myTypes[myType]>0 && window.generalStatus[myType] == "ok"){
+                    window.generalStatus[myType] = "ok"
                 }else{
-                    Response += "<tr><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/warn_ico.gif\" title=\"Warning\" /></td>";
+                    window.generalStatus[myType] = "warn"
                 }
             }else{
-                if(myTypes[myType]>0){
-                    
-                //    if($(".input-dropdown:contains( " + myType + ")").parent().parent().find("div:contains(Required)").last().find("bold").text() == "100%"){
-                    Response += "<tr><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/ok_ico.gif\" title=\"OK\" /></td>";
-                    
+                if(myTypes[myType]>0 && window.generalStatus[myType] == "ok"){
+                    window.generalStatus[myType] = "ok"
                 }else{
-                    Response += "<tr><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"></td>";
+                    window.generalStatus[myType] = "hide"
                 }
             }
+            if(window.generalStatus[myType] != "hide")
+                Response += "<tr><td>Source</td><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"><img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/" + window.generalStatus[myType] + "_ico.gif\" title=\"" + window.generalStatus[myType] + "\" /></td></tr>";
+            else
+                Response += "<tr><td>Source</td><td>" + myTypes_Pretty[myType] + "</td><td>" + isRequired + "</td><td id=\"status_" + myType + "\"></td></tr>";
         }
        
         Response += "</table>"
@@ -156,6 +154,15 @@ function saveState(){
         }else if(identitySearch != "" && identitySearch!="| inputlookup LDAPSearch.csv"){
             SearchString += "| append [| makeresults | fields - _time | eval datamodel=\"UBA_Identity\", search=\"" + identitySearch + "\"]"
         }
+
+        
+        if(SearchString=="" && document.getElementById("role_check_perm").value != "" && document.getElementById("role_check_perm").value!="admin"){
+            SearchString="| makeresults | fields - _time | eval datamodel=\"role_check_perm\", search=\"" + document.getElementById("role_check_perm").value + "\""
+        }else if(identitySearch != "" && document.getElementById("role_check_perm").value != "" && document.getElementById("role_check_perm").value!="admin"){
+            SearchString += "| append [| makeresults | fields - _time | eval datamodel=\"role_check_perm\", search=\"" + document.getElementById("role_check_perm").value + "\"]"
+        }
+
+        
         if(SearchString != ""){
             SearchString += " | outputlookup cim_data_input_saved.csv"
             console.log("Saving Context...", SearchString)
@@ -250,15 +257,23 @@ function loadState(){
 
 
                 for(var datum in data){
-                    if("search" in data[datum] && "datamodel" in data[datum] && typeof data[datum].search !="undefined" && typeof data[datum].datamodel !="undefined" && data[datum].datamodel !="UBA_Identity"){
+                    if("search" in data[datum] && "datamodel" in data[datum] && typeof data[datum].search !="undefined" && typeof data[datum].datamodel !="undefined" && data[datum].datamodel !="UBA_Identity" && data[datum].datamodel != "role_check_perm"){
                         console.log("Adding Row with ", data[datum].datamodel, data[datum].search)
                         window.addRow(data[datum].datamodel, data[datum].search)
+                        window.generalStatus[data[datum].datamodel] = "ok"
 
                     }else if("search" in data[datum] && "datamodel" in data[datum] && typeof data[datum].search !="undefined" && typeof data[datum].datamodel !="undefined" && data[datum].datamodel=="UBA_Identity"){
                         console.log("Got an identity data lookup!")
                         mvc.Components.getInstance("identity_data_base_search_input").val(data[datum].search)
                         window.launch_identity_base_search()
+
+                    }else if("search" in data[datum] && "datamodel" in data[datum] && typeof data[datum].search !="undefined" && typeof data[datum].datamodel !="undefined" && data[datum].datamodel=="role_check_perm"){
+                        $("#role_check_perm").attr("value", data[datum].search)
+                        $("#role_check_update").click()
+                        
                     }
+
+                    
                 }
                 $(".data_input").each(function(){
                     id = this.id.substr(11); 
@@ -463,6 +478,7 @@ require([
 
         input2.on("change", function(newValue) {
             FormUtils.handleValueChange(input2);
+            window.generalStatus[newValue] = "ok"
             UpdateSearchStringForId(this.id.substr(7))
             
         });
@@ -501,9 +517,13 @@ require([
                 var mycolor=""
                 if(data[0].percent <= 99){
                     mycolor = "color: darkred;"
-                    if($("#status_" + mvc.Components.getInstance("input2_" + id).val()).find("img").attr("src").indexOf("ok_") >=0){
-                        $("#status_" + mvc.Components.getInstance("input2_" + id).val()).find("img").attr("src", "/static/app/" + appName + "/err_ico.gif")
+                    if(typeof window.generalStatus[mvc.Components.getInstance("input2_" + id).val()] == "undefined"){
+                        window.generalStatus[mvc.Components.getInstance("input2_" + id).val()] = "ok"
                     }
+                    window.generalStatus[mvc.Components.getInstance("input2_" + id).val()] = "err"
+                    console.log("just set ", mvc.Components.getInstance("input2_" + id).val(), window.generalStatus[mvc.Components.getInstance("input2_" + id).val()])
+                    checkOverallData()
+
                 }else if(data[0].percent <= 100){
                     mycolor = "color: darkgreen;"
                 }
@@ -670,3 +690,102 @@ require([
     }
 
 });
+
+
+
+
+require([
+    'splunkjs/mvc/tableview',
+    'splunkjs/mvc/searchmanager',
+    'splunkjs/mvc',
+    'underscore',
+    "splunkjs/mvc/simpleform/formutils",
+    "splunkjs/mvc/utils",
+    "splunkjs/mvc/tokenutils",
+    "splunkjs/mvc/simpleform/input/dropdown",
+    "splunkjs/mvc/simpleform/input/radiogroup",
+    "splunkjs/mvc/simpleform/input/linklist",
+    "splunkjs/mvc/simpleform/input/multiselect",
+    "splunkjs/mvc/simpleform/input/checkboxgroup",
+    "splunkjs/mvc/simpleform/input/text",
+    "splunkjs/mvc/simpleform/input/timerange",
+    "splunkjs/mvc/simpleform/input/submit",
+    "splunkjs/mvc/postprocessmanager",
+    'splunkjs/mvc/simplexml/ready!'],function(
+    TableView,
+    SearchManager,
+    mvc,
+    _,
+    FormUtils,
+        utils,
+        TokenUtils,
+        DropdownInput,
+        RadioGroupInput,
+        LinkListInput,
+        MultiSelectInput,
+        CheckboxGroupInput,
+        TextInput,
+        TimeRangeInput,
+        SubmitButton,
+        PostProcessManager
+    ){
+        mvc.Components.getInstance("submitted").set("role_check_username",document.getElementById("role_check_perm").value )
+        $("#role_check_update").on("click", function(){
+            console.log("got", document.getElementById("role_check_perm").value )
+            var unsubmitted = mvc.Components.getInstance("default")
+            unsubmitted.set("role_check_username", document.getElementById("role_check_perm").value )
+            mvc.Components.getInstance("submitted").set("role_check_username", document.getElementById("role_check_perm").value )
+            mvc.Components.getInstance("role_search").startSearch()
+
+        })
+        var appName = utils.getCurrentApp()
+        $("#role_check_results").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/icon_processing.gif\" title=\"Processing...\" />")
+        //role_check_perm
+
+
+        var role_search = new SearchManager({
+            "id": "role_search",
+            "sample_ratio": null,
+            "search": "| rest splunk_server=local /servicesNS/-/-/admin/quota-usage/$role_check_username$  | transpose| search column=rtSrchJobsQuota | rename \"row 1\" as Number_Of_Realtime_Jobs | eval status=case(Number_Of_Realtime_Jobs>=10, \"ok\", Number_Of_Realtime_Jobs>=5, \"warn\", 1=1, \"err\"), result=case(Number_Of_Realtime_Jobs>=10, \"Check Passed for user $role_check_username$\", Number_Of_Realtime_Jobs>=5, \"Warning for user $role_check_username$. Fewer than normal realtime jobs are available, though usually this number is sufficient.\", Number_Of_Realtime_Jobs>=1, \"Check Failed for user $role_check_username$ -- we can run in real-time, but fewer concurrent jobs than usually required.\", Number_Of_Realtime_Jobs<=0, \"Check Failed for user $role_check_username$. No Real Time Searches Enabled.\") ",
+            "latest_time": "$timerange.latest$",
+            "status_buckets": 0,
+            "cancelOnUnload": true,
+            "earliest_time": "$timerange.earliest$",
+            "app": utils.getCurrentApp(),
+            "auto_cancel": 90,
+            "preview": true,
+            "runWhenTimeIsUndefined": false
+        }, {tokens: true, tokenNamespace: "submitted"});
+
+        
+        var myResults = role_search.data('results', { output_mode:'json', count:0 });
+        role_search.on('search:done', function(properties) {
+            if(role_search.attributes.data.resultCount == 0) {
+                $("#role_check_results").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/err_ico.gif\" title=\"Error\" /> <b>Error running checks</b> -- validate username.")
+              return;
+            }       
+            myResults.on("data", function() {
+                var data = myResults.data().results;
+                console.log("Here are my results", role_search, data) 
+                for(var datum in data){
+                    if(datum == "0")
+                        datum = data[datum]
+                    console.log("Hey look I got something! ", datum)
+                    if(typeof datum['status'] != "undefined"){
+                        
+                        $("#role_check_results").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/" + datum['status'] + "_ico.gif\" title=\"" + datum['status'] + "\" /> <b>" + datum['result'] + "</b>")
+                        window.generalStatus["role_checks"] = datum['status']
+                        checkOverallData()
+                        
+                    }
+                }
+            });
+          });
+
+        role_search.on('search:start', function(properties) {
+            $("#role_check_results").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/icon_processing.gif\" title=\"Processing...\" />")
+          });
+
+
+
+    })

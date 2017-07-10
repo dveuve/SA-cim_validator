@@ -81,7 +81,9 @@ require([
             cim_base.on('search:done', function(properties) {
                 if(cim_base.attributes.data.resultCount == 0) {
                   $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/err_ico.gif\" title=\"Error\" />")
+                  window.generalStatus.identity = "err"
                 } else{
+                    window.generalStatus.identity = "ok"
                     $("#identity_data_base_search_progress").html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/ok_ico.gif\" title=\"Got Results\" />")
                     $("#identity_data_individual_checks").css("display", "block")
                     for(var name in window.HRChecks){if(window.HRChecks.hasOwnProperty(name)){
@@ -90,6 +92,7 @@ require([
                         $("#identity_data_check_" + name + '_description').html("")
                     }}
                 }
+                checkOverallData()
 
               });
         function launch_identity_base_search(){
@@ -136,6 +139,7 @@ require([
             window.HRChecks[name].search_manager.on('search:done', function(properties) {
                 if(window.HRChecks[name].search_manager.attributes.data.resultCount == 0) {
                   $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/err_ico.gif\" title=\"Error\" />")
+                  window.generalStatus.identity = "err"
                 }       
                 window.HRChecks[name].results.on("data", function() {
                     var data = window.HRChecks[name].results.data().results;
@@ -143,8 +147,12 @@ require([
                     if(data[0].status == "bad"){
                         if(severity=="error"){
                             $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/err_ico.gif\" title=\"Error\" />")
+                            window.generalStatus.identity = "err"
                         }else{
                             $("#identity_data_check_" + name + '_status').html("<img style=\"width: 20px; height: 20px;\" src=\"/static/app/" + appName + "/warn_ico.gif\" title=\"Warning\" />")
+                            if(window.generalStatus.identity == "ok")
+                                window.generalStatus.identity = "warn"
+                            
                         }
                         
                         $("#identity_data_check_" + name + '_description').html("<p>" + data[0].description + "</p>")
@@ -154,6 +162,7 @@ require([
                     }
                     
                 });
+                checkOverallData()
               });
 
         }

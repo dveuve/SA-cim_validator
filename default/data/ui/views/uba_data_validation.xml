@@ -3,6 +3,16 @@
 
   <row>
     <panel>
+      <title>Overall Coverage</title>
+      <html>
+        <div id="data_summary_overall">
+          <p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. Please supply additional data sources.</p>
+        </div>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
       <title>UBA Data Validation</title>
       <html>
         <div id="data_input_header">
@@ -27,10 +37,12 @@
   </row>
   <row>
     <panel>
-      <title>Overall Data Coverage</title>
+      <title>Role Permissions</title>
       <html>
-        <div id="data_summary_overall">
-          <p>UBA requires at least data from AD, Proxy, Firewall, DNS, and DHCP, and gets great additional value out of VPN, Endpoint Security, Network Security, and Cloud sources. Please supply additional data sources.</p>
+        <div id="role_permissions_container">
+          <p>UBA requires the ability to run indexed real-time searches. (<a href="http://docs.splunk.com/Documentation/Splunk/6.6.2/Search/Aboutrealtimesearches#Indexed_real-time_search">Indexed real-time searches</a> have a fraction of the performance impact that normal real-time searches do.) We need to double check that the service account we will use for UBA has enough privileges to run several real-time searches. We recommend configuring for 10, though most environments will need far fewer.</p>
+          <p>Username: <input class="input" id="role_check_perm" value="admin" /><input type="button" class="btn" value="Update" id="role_check_update"/></p>
+          <div id="role_check_results"></div>
         </div>
       </html>
     </panel>
